@@ -1,9 +1,13 @@
-.skills-container {
+section.skills-container {
   inline-size: 100%;
   display: flex;
-  flex-direction: row;
-  /* justify-content: flex-end; */
-  align-items: center;
+  /* flex-direction: row; */
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.skills-title {
+  display: inline;
 }
 
 .skills-list {
@@ -14,4 +18,12 @@
 
 li.skill {
   display: inline;
+}
+.skills-content-container {
+  inline-size: 100%;
+  block-size: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: space-between; */
 }

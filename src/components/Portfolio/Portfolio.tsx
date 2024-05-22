@@ -1,16 +1,18 @@
 import Footer from "../Footer"
 import Header from "../Header"
-import sections from "../sections"
+import { Contact, About, Projects, Skills } from "../sections"
 import "./portfolio.css"
 
 function Portfolio() {
+  const sectionProps = { className: "section" }
   return (
     <div className='portfolio-container'>
       <Header />
       <div className='body-container'>
-        {Object.values(sections).map((section) => {
-          return section({ className: "section" })
-        })}
+        <About {...sectionProps} />
+        <Skills {...sectionProps} />
+        <Projects {...sectionProps} />
+        <Contact {...sectionProps} />
       </div>
       <Footer />
     </div>

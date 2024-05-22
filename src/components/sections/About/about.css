@@ -1,0 +1,24 @@
+.about-logo {
+  align-self: flex-start;
+}
+
+p.about-content {
+  align-self: flex-end;
+}
+
+.about-container {
+  inline-size: 100%;
+  block-size: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.about-content-container {
+  inline-size: 100%;
+  block-size: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

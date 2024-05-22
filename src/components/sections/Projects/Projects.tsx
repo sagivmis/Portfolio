@@ -8,7 +8,12 @@ interface IProjects extends ISection {}
 const projects: ProjectType[] = [
   {
     title: "Cryptocurrency Algo-Trade Bot",
-    content: "Developed using Python with pandas and numpy."
+    content:
+      "Developed using Python with pandas and numpy for the backend and\n React with Electron for the front-end."
+  },
+  {
+    title: "AI Chatbot",
+    content: "with dashboard for user preferences and file management."
   },
   {
     title: "Independent Game Development",

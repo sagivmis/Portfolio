@@ -1,7 +1,9 @@
 .header-container {
-  inline-size: 100%;
-  block-size: var(--header-footer-block-size);
   background-color: var(--background);
+
+  padding: var(--padding);
+  inline-size: calc(100% - calc(var(--padding) * 2));
+  block-size: calc(var(--header-footer-block-size - calc(var(--padding) * 2)));
 
   transition: all 0.3s ease-out;
 }

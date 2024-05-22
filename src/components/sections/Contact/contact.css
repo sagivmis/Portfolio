@@ -1,0 +1,33 @@
+.body-container section.contact-container {
+  /* align-self: center; */
+  min-block-size: unset;
+  display: flex;
+  flex-direction: row;
+  /* align-self: flex-end; */
+  block-size: 10%;
+  inline-size: 100%;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.contact-link {
+  color: var(--detail);
+}
+
+.contact {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.contact-icon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.contact-options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+}
