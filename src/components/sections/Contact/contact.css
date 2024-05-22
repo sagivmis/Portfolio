@@ -1,13 +1,22 @@
-.body-container section.contact-container {
-  /* align-self: center; */
-  min-block-size: unset;
+.body-container section.contact-footer-container {
+  gap: 1em;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.contact-footer {
+  inline-size: 100%;
+  block-size: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.contact-container {
   display: flex;
   flex-direction: row;
-  /* align-self: flex-end; */
-  block-size: 10%;
-  inline-size: 100%;
+  inline-size: 85%;
   justify-content: space-between;
-  gap: 1em;
 }
 
 .contact-link {

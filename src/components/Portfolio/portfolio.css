@@ -54,17 +54,23 @@ html {
 
   /* block-size: calc(100% ); */
   background-color: var(--background);
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 
-section.section {
+section.section-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  block-size: 100%;
-  min-block-size: 100vh;
+  padding: var(--padding);
+  /* block-size: 87vh; */
+  block-size: calc(100% - calc(var(--padding) * 2));
+  inline-size: calc(100% - calc(var(--padding) * 2));
+  min-block-size: calc(100vh - calc(var(--padding) * 2));
 }
 
+div.fullpage-wrapper {
+  inline-size: 100%;
+}
 /* width */
 ::-webkit-scrollbar {
   width: 0.65em;

@@ -1,5 +1,8 @@
 .header-container {
-  background-color: var(--background);
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  /* background-color: var(--background); */
 
   padding: var(--padding);
   inline-size: calc(100% - calc(var(--padding) * 2));
