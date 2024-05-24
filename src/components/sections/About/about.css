@@ -1,24 +1,113 @@
-.about-logo {
-  align-self: flex-start;
-}
-
-p.about-content {
-  align-self: flex-end;
-}
-
-.about-container {
-  inline-size: 100%;
-  block-size: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-
 .about-content-container {
   inline-size: 100%;
-  block-size: 50%;
+  block-size: 60%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+}
+
+.about-logo {
+  align-self: flex-start;
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.1));
+}
+
+span.about-content {
+  display: flex;
+  inline-size: 70%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-block-size: 60%;
+  /* align-self: flex-end; */
+}
+
+section.about-container {
+  justify-content: flex-start;
+}
+
+div.profile-avatar {
+  width: 12em;
+  height: 12em;
+}
+
+.experience-container,
+.experience,
+.right-content,
+.left-content {
+  display: flex;
+}
+
+.right-content {
+  inline-size: 60%;
+}
+.left-content {
+  align-self: flex-start;
+  /* margin-block-end: 10%; */
+}
+
+.right-content {
+  align-self: flex-end;
+}
+.experience-container {
+  flex-direction: column;
+  gap: 0.35em;
+}
+
+.experience {
+  flex-direction: column;
+  /* line-height: 1.5; */
+}
+.experience-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.experience-title {
+  /* font-weight: ; */
+}
+.experience-location {
+  font-size: 14px;
+  letter-spacing: 0.075em;
+  font-style: italic;
+}
+.experience-duration {
+  font-size: 12px;
+  align-self: flex-end;
+  font-style: italic;
+  /* text-align: start; */
+}
+
+.experience-description {
+  margin-inline-start: -1em;
+}
+
+.experience-info {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  align-items: flex-end;
+}
+.summary {
+  margin-inline-start: -3em;
+  margin-block-end: 0.25em;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.experience-content {
+  text-align: left;
+}
+
+div.profile-avatar {
+  /* padding: var(--padding);
+  background-color: white; */
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 8px 1px;
+}
+
+img.profile-image {
+  border-radius: 50%;
 }

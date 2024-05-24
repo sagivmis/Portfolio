@@ -24,7 +24,7 @@ const projects: ProjectType[] = [
 const Projects = (props: IProjects) => {
   const { className } = props
   return (
-    <section className={clsx("projects-container", className)} id='projects'>
+    <section className={clsx("projects-container", className)}>
       {projects.map((project) => (
         <Project project={project} />
       ))}

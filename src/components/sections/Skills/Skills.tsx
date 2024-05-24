@@ -22,7 +22,7 @@ const Skills = (props: ISkills) => {
   const { className } = props
 
   return (
-    <section className={clsx("skills-container", className)} id='skills'>
+    <section className={clsx("skills-container", className)}>
       <div className='skills-content-container'>
         <h2 className='skills-title'>Skills</h2>
         <ul className='skills-list'>

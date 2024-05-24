@@ -10,19 +10,14 @@ interface IContact extends ISection {}
 const Contact = (props: IContact) => {
   const { className } = props
   return (
-    <section
-      id='contact'
-      className={clsx("contact-footer-container", className)}
-    >
+    <section className={clsx("contact-footer-container", className)}>
       <div className='contact-footer'>
         <div className='contact-container'>
           <h2>Contact</h2>
           <span className='contact-options'>
             <span className='contact'>
-              <span></span>
               <a href='mailto:sagivmishaan@gmail.com' className='contact-link'>
                 <Mail />
-                {/* sagivmishaan@gmail.com */}
               </a>
             </span>
             <span className='contact'>
