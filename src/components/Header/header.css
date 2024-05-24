@@ -2,11 +2,13 @@
   position: fixed;
   top: 0;
   z-index: 5;
+  display: flex;
+  align-items: flex-end;
   /* background-color: var(--background); */
 
   padding: var(--padding);
   inline-size: calc(100% - calc(var(--padding) * 2));
-  block-size: calc(var(--header-footer-block-size - calc(var(--padding) * 2)));
+  block-size: calc(var(--header-footer-block-size) - calc(var(--padding) * 2));
 
   transition: all 0.3s ease-out;
 }

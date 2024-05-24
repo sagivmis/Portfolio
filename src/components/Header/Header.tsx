@@ -1,10 +1,16 @@
+import { fullpageApi } from "@fullpage/react-fullpage"
 import LinkBar from "./LinkBar"
 import "./header.css"
 
-const Header = () => {
+interface IHeader {
+  fullPageApi: fullpageApi
+}
+
+const Header = (props: IHeader) => {
+  const { fullPageApi } = props
   return (
     <div className='header-container'>
-      <LinkBar />
+      <LinkBar fullPageApi={fullPageApi} />
     </div>
   )
 }
