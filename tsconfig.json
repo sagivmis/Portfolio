@@ -12,7 +12,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "types": ["sketch-types", "cocoascript-types", "sketch-internal-types"]
 
     /* Linting */
     // "strict": true,
