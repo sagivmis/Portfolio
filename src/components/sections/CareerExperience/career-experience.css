@@ -1,0 +1,37 @@
+section.career-experience-section-container {
+  justify-content: flex-end;
+}
+.career-experience-content-container {
+  inline-size: 100%;
+  block-size: 92.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.career-experience-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  inline-size: 100%;
+
+  gap: 1em;
+
+  block-size: 85%;
+  align-items: flex-start;
+  justify-items: center;
+}
+
+.summary {
+  margin-inline-start: -3em;
+  margin-block-end: 0.25em;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.summary-container {
+  block-size: 15%;
+  animation: slideInTop 500ms ease;
+}

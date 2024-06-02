@@ -1,9 +1,23 @@
 import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react"
 import path from "path"
+import coffee from "coffeescript"
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    {
+      name: "vite-plugin-coffeescript",
+      transform(src, id) {
+        if (!id.endsWith(".coffee")) return null
+        const result = coffee.compile(src, { bare: true })
+        return {
+          code: result,
+          map: null // provide source map if available
+        }
+      }
+    }
+  ],
   build: {
     emptyOutDir: true,
     outDir: "dist",

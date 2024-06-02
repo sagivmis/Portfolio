@@ -16,10 +16,12 @@
     "@mui/icons-material": "^5.15.18",
     "@mui/material": "^5.15.18",
     "clsx": "^2.1.1",
+    "coffeescript": "^2.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/coffeescript": "^2.5.7",
     "@types/node": "^20.12.12",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
