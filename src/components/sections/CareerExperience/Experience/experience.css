@@ -23,9 +23,6 @@
 
   opacity: 1;
 
-  border: 1px solid var(--divider);
-  padding: 1em;
-
   animation: 1s fadeToTop, 0.75s scaleExperience 1s forwards,
     1s slideInTop 0.75s;
   /* animation-delay: 0ms; */
@@ -34,7 +31,7 @@
   0% {
     position: absolute;
     inline-size: 85vw;
-    block-size: 60vh;
+    block-size: 0vh;
     left: 7.5vw;
     top: 8vh;
   }
@@ -45,6 +42,8 @@
     block-size: 60vh;
     left: 7.5vw;
     top: 8vh;
+    border: 1px solid var(--divider);
+    padding: 1em;
   }
 }
 
