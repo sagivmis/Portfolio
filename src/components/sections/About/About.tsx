@@ -4,76 +4,131 @@ import clsx from "clsx"
 import Sagiv from "../../../assets/Sagiv.png"
 import { Avatar } from "@mui/material"
 import { Profile } from "../../../assets"
+import { CSSProperties, useEffect, useMemo, useRef, useState } from "react"
+import SpeedIcon from "@mui/icons-material/SpeedOutlined"
+import DevicesIcon from "@mui/icons-material/DevicesOutlined"
+import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined"
+import RocketLaunchOutlinedIcon from "@mui/icons-material/RocketLaunchOutlined"
+import ProgressBar from "../../../util/components/ProgressBar"
+import { skillset } from "../../../util"
 
 interface IAbout extends ISection {}
 
 const About = (props: IAbout) => {
-  const { className } = props
+  const { className, currentSection } = props
+  const [style, setStyle] = useState<CSSProperties>()
+
+  const isCurrentSection = useMemo(
+    () => currentSection === "about",
+    [currentSection]
+  )
+
+  const handleChangeRenderedStyle = () => {}
+
+  useEffect(() => {
+    if (!isCurrentSection)
+      setTimeout(() => !isCurrentSection && setStyle({ display: "none" }), 700)
+    //ms of delay should be equal to full page delay
+    else setTimeout(() => isCurrentSection && setStyle(undefined), 700 / 3)
+  }, [currentSection, isCurrentSection])
+
   return (
     <section className={clsx("about-container", className)}>
-      <div className='about-content-container'>
+      <div className='about-content-container' style={style}>
         <img src={Sagiv} alt='image' className='about-logo' />
         <span className='about-content'>
-          <div className='left-content'>
-            <Avatar
-              alt='Sagiv Mishaan'
-              src={Profile}
-              className='profile-avatar'
-              classes={{ img: "profile-image" }}
-            />
-          </div>
-          <div className='right-content'>
-            <div className='experience-container'>
-              <span className='experience'>
-                <span className='experience-content summary'>
-                  Experienced Full-Stack Engineer with a passion for innovative
-                  technology.
+          <div className='top-content-container'>
+            <div className='about-items'>
+              <div
+                className='about-item-container'
+                style={{ animationDelay: "550ms" }}
+              >
+                <span className='hexagon-wrap'>
+                  <span className='hexagon'>
+                    <SpeedIcon className='about-item-icon' />
+                  </span>
                 </span>
-              </span>
-              <span className='experience'>
-                <span className='experience-title heading'>
-                  <div className='experience-info'>
-                    <span className='experience-description'>
-                      FULL STACK ENGINEER,
-                    </span>
-                    <span className='experience-location'>8200 Unit</span>
-                  </div>
-                  <span className='experience-duration'>2022 – PRESENT</span>
-                </span>
-                <span className='experience-content'>
-                  Experienced Full-Stack Engineer with a passion for innovative
-                  technology.
-                </span>
-              </span>
-              <span className='experience'>
-                <span className='experience-title heading'>
-                  <div className='experience-info'>
-                    <span className='experience-description'>
-                      FULL STACK & GAME DEVELOPER,
-                    </span>
-                    <span className='experience-location'>Freelance</span>
-                  </div>
-                  <span className='experience-duration'>2020 – PRESENT</span>
-                </span>
-                <span className='experience-content'>
-                  Experienced Full-Stack Engineer with a passion for innovative
-                  technology.
-                </span>
-              </span>
 
-              <span className='experience'>
-                <span className='experience-title heading'>
-                  <div className='experience-info'>
-                    <span className='experience-description'>TUTOR, </span>
-                    <span className='experience-location'>Independent</span>
-                  </div>
-                  <span className='experience-duration'>2020 – PRESENT</span>
+                <h4 className='about-item-title'>Fast</h4>
+                <p className='about-item-content'>
+                  Fast load times and lag free interaction, my highest priority.
+                </p>
+              </div>
+              <div
+                className='about-item-container'
+                style={{ animationDelay: "700ms" }}
+              >
+                <span className='hexagon-wrap'>
+                  <span className='hexagon'>
+                    <DevicesIcon className='about-item-icon' />
+                  </span>
                 </span>
-                <span className='experience-content'>
-                  Teaching and helping students with a wide range of levels,
-                  from middle school to academic students (B.Sc.)
+
+                <h4 className='about-item-title'>Responsive</h4>
+                <p className='about-item-content'>
+                  My layouts will work on any device, big or small.
+                </p>
+              </div>
+              <div
+                className='about-item-container'
+                style={{ animationDelay: "850ms" }}
+              >
+                <span className='hexagon-wrap'>
+                  <span className='hexagon'>
+                    <LightbulbOutlinedIcon className='about-item-icon' />
+                  </span>
                 </span>
-              </span>
+
+                <h4 className='about-item-title'>Intuitive</h4>
+                <p className='about-item-content'>
+                  Strong preference for easy to use, intuitive UX/UI.
+                </p>
+              </div>
+              <div
+                className='about-item-container'
+                style={{ animationDelay: "1000ms" }}
+              >
+                <span className='hexagon-wrap'>
+                  <span className='hexagon'>
+                    <RocketLaunchOutlinedIcon className='about-item-icon' />
+                  </span>
+                </span>
+                <h4 className='about-item-title'>Dynamic</h4>
+                <p className='about-item-content'>
+                  Websites don't have to be static, I love making pages come to
+                  life.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className='bottom-content-container'>
+            <div className='bottom-content'>
+              <div className='general-info-container'>
+                <Avatar
+                  alt='Sagiv Mishaan'
+                  src={Profile}
+                  className='profile-avatar'
+                  classes={{ img: "profile-image" }}
+                />
+                <h4 className='about-me-title'>Who's this guy?</h4>
+                <p className='about-me-content'>
+                  I'm a Full-Stack Engineer for 8200 unit in Israel. I have
+                  serious passion for UI effects, animations and creating
+                  intuitive, dynamic user experiences. <br />
+                  <a href='#contact' className='contact'>
+                    Let's make something special.
+                  </a>
+                </p>
+              </div>
+              <div className='skillset'>
+                {skillset.map((skill) => (
+                  <ProgressBar
+                    label={skill.label}
+                    value={skill.value}
+                    max={100}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </span>

@@ -1,0 +1,43 @@
+.progress-bar-container {
+  inline-size: 100%;
+  background-color: #e0e0e0;
+  border-radius: 0 8px 8px 0;
+  overflow: hidden;
+}
+
+.start-zero {
+  width: 0;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: var(--primary);
+  text-align: center;
+  /* line-height: 2.5em; */
+  color: white;
+  /* border-radius: 0px 74% 74% 0px; */
+  transition: inline-size 0.5s ease-in-out;
+}
+
+.skill-progress-container {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  /* block-size: 2em; */
+  line-height: 2em;
+  /* gap: 1em; */
+}
+
+.skill-name {
+  background-color: var(--normal);
+  color: white;
+  /* padding-block: 0.05em; */
+  /* padding-inline: 2.25em; */
+  inline-size: 12em;
+  letter-spacing: 0.05em;
+}
+
+@keyframes startZero {
+  0% {
+  }
+}
