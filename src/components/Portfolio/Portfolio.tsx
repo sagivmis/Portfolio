@@ -8,7 +8,9 @@ import { FullPageEvents, SectionNames } from "../../types"
 import CareerExperience from "../sections/CareerExperience"
 
 function Portfolio() {
-  const [currentSection, setCurrentSection] = useState<SectionNames>()
+  const [currentSection, setCurrentSection] = useState<SectionNames>(
+    window.location.hash.split("#")[1] as SectionNames
+  )
   const [isFirstRender, setIsFirstRender] = useState(true)
   const callbacks = useRef<Record<FullPageEvents, Record<string, () => void>>>({
     onLeave: {},
@@ -62,9 +64,6 @@ function Portfolio() {
                 <div className='section' data-anchor='experience'>
                   <CareerExperience {...sectionProps} />
                 </div>
-                {/* <div className='section' data-anchor='skills'>
-                  <Skills {...sectionProps} />
-                </div> */}
                 <div className='section' data-anchor='projects'>
                   <Projects {...sectionProps} />
                 </div>

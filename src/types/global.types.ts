@@ -7,6 +7,7 @@ export type SectionNames =
   | "projects"
   | "contact"
   | "experience"
+  | ""
 
 export interface ISection {
   className?: string
@@ -17,6 +18,7 @@ export interface ISection {
 export type ProjectType = {
   title: string
   content: string
+  images?: Record<string, string>
 }
 export type Skill = {
   value: number
