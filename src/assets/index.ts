@@ -3,4 +3,16 @@ import LinkedIn from "./linkedin.svg"
 import Fiverr from "./fiverr.svg"
 import Profile from "./profile.jpeg"
 
-export { GitHub, LinkedIn, Fiverr, Profile }
+import AlgoTradeProject from "./projects/algo-trade-bot"
+import AIChatProject from "./projects/ai-chat"
+import Skeleton from "./projects/skeleton.png"
+
+export {
+  GitHub,
+  LinkedIn,
+  Fiverr,
+  Profile,
+  AlgoTradeProject,
+  AIChatProject,
+  Skeleton
+}
