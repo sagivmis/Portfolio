@@ -40,7 +40,7 @@ const About = (props: IAbout) => {
   return (
     <section className={clsx("about-container", className)}>
       <div className='about-content-container' style={style}>
-        <h2 className='sagiv-logo fill-title'>
+        <h2 className='sagiv-logo'>
           <a href=''>
             <span>Sagiv Mishaan</span>
           </a>
