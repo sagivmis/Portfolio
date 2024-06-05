@@ -1,4 +1,5 @@
-import { Skill, WorkPlaces, WorkExperience } from "../types"
+import { AIChatProject, AlgoTradeProject } from "../assets"
+import { Skill, WorkPlaces, WorkExperience, ProjectType } from "../types"
 
 export const skillset: Skill[] = [
   { label: "CSS", value: 90 },
@@ -69,3 +70,20 @@ export const workLocationsMapping: Record<WorkPlaces, string> = {
   "8200": "8200 IDF Unit",
   "Ind.": "Independent"
 }
+export const projects: ProjectType[] = [
+  {
+    title: "Cryptocurrency Algo-Trade Bot",
+    content:
+      "Developed using Python with pandas and numpy for the backend and\n React with Electron for the front-end.",
+    images: AlgoTradeProject
+  },
+  {
+    title: "AI Chatbot",
+    content: "with dashboard for user preferences and file management.",
+    images: AIChatProject
+  },
+  {
+    title: "Independent Game Development",
+    content: "Created 2D and 3D arcade games with AI systems for NPCs."
+  }
+]
