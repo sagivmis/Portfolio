@@ -41,10 +41,9 @@ export const experiences: WorkExperience[] = [
     title: "FULL STACK & GAME DEVELOPER",
     // location: "8200 Unit",
     start: "2020",
-    content: `As an Independent Game Developer, I have crafted a portfolio of
-    engaging 2D and 3D arcade games, alongside mockup games for
-    practice. My creations feature sophisticated AI systems for enemy
-    and non-playable characters (NPCs), enriching the gaming
+    content: `As an Independent Game Developer and Full-Stack Engineer, I have crafted a portfolio of
+    engaging 2D and 3D arcade games, aswell as website applications with various complexity levels. 
+    My creations feature sophisticated AI systems for enemy and non-playable characters (NPCs), enriching the gaming
     experience. I also implemented robust saving systems, allowing
     players to seamlessly continue their adventures. This role has
     honed my skills in game design, AI programming, and user
