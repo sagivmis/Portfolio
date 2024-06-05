@@ -17,6 +17,7 @@ interface IAbout extends ISection {}
 const About = (props: IAbout) => {
   const { className, currentSection } = props
   const [style, setStyle] = useState<CSSProperties>()
+  const [showSkillset, setShowSkillset] = useState(true)
 
   const isCurrentSection = useMemo(
     () => currentSection === "about",
@@ -27,15 +28,23 @@ const About = (props: IAbout) => {
 
   useEffect(() => {
     if (!isCurrentSection)
-      setTimeout(() => !isCurrentSection && setStyle({ display: "none" }), 700)
+      setTimeout(() => {
+        !isCurrentSection && setStyle({ display: "none" })
+        setShowSkillset(false)
+      }, 700)
     //ms of delay should be equal to full page delay
-    else setTimeout(() => isCurrentSection && setStyle(undefined), 700 / 3)
+    else
+      setTimeout(() => {
+        isCurrentSection && setStyle(undefined)
+        setShowSkillset(true)
+      }, 700 / 3)
   }, [currentSection, isCurrentSection])
 
   return (
     <section className={clsx("about-container", className)}>
       <div className='about-content-container' style={style}>
-        <img src={Sagiv} alt='image' className='about-logo' />
+        {/* <img src={Sagiv} alt='image' className='about-logo' /> */}
+        <h2 className='sagiv-logo'>Sagiv Mishaan</h2>
         <span className='about-content'>
           <div className='top-content-container'>
             <div className='about-items'>
@@ -121,13 +130,15 @@ const About = (props: IAbout) => {
                 </p>
               </div>
               <div className='skillset'>
-                {skillset.map((skill) => (
-                  <ProgressBar
-                    label={skill.label}
-                    value={skill.value}
-                    max={100}
-                  />
-                ))}
+                {showSkillset &&
+                  skillset.map((skill, index) => (
+                    <ProgressBar
+                      label={skill.label}
+                      value={skill.value}
+                      max={100}
+                      animationDelay={index * 20}
+                    />
+                  ))}
               </div>
             </div>
           </div>

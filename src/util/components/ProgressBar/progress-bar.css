@@ -5,18 +5,15 @@
   overflow: hidden;
 }
 
-.start-zero {
-  width: 0;
-}
-
 .progress-bar {
   height: 100%;
   background-color: var(--primary);
   text-align: center;
   /* line-height: 2.5em; */
+  inline-size: 0;
   color: white;
   /* border-radius: 0px 74% 74% 0px; */
-  transition: inline-size 0.5s ease-in-out;
+  transition: 1s inline-size 0.35s cubic-bezier(0.175, 0.82, 0.265, 1);
 }
 
 .skill-progress-container {
@@ -24,7 +21,7 @@
   flex-direction: row;
   /* align-items: center; */
   /* block-size: 2em; */
-  line-height: 2em;
+  line-height: 1.5em;
   /* gap: 1em; */
 }
 
