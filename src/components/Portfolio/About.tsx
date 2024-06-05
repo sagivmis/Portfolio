@@ -1,10 +1,10 @@
-import { ISection } from "../../../types"
 import "./about.css"
 import clsx from "clsx"
 import Sagiv from "../../../assets/Sagiv.png"
 import { Avatar } from "@mui/material"
-import { Profile } from "../../../assets"
 import { CSSProperties, useEffect, useMemo, useState } from "react"
+import { ISection } from "../../types"
+import { Profile } from "../../assets"
 
 interface IAbout extends ISection {}
 
