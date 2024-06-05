@@ -1,0 +1,14 @@
+section.projects-container {
+  flex-direction: row;
+
+  gap: 1em;
+}
+
+.projects-container .slide div.fp-overflow {
+  flex-direction: row;
+  gap: 1em;
+}
+
+.projects-container .fp-slides {
+  inline-size: 100%;
+}
