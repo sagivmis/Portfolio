@@ -27,6 +27,12 @@
     1s slideInTop 0.75s;
   /* animation-delay: 0ms; */
 }
+
+.experience-container.selected .experience-title-container,
+.experience-container.selected div.MuiChip-root {
+  color: var(--headline-dark);
+  transition: 0s color 1s;
+}
 @keyframes scaleExperience {
   0% {
     position: absolute;
@@ -42,7 +48,6 @@
     block-size: 60vh;
     left: 7.5vw;
     top: 8vh;
-    border: 1px solid var(--divider);
     padding: 1em;
   }
 }
