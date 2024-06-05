@@ -9,8 +9,9 @@ import CareerExperience from "../sections/CareerExperience"
 
 function Portfolio() {
   const [currentSection, setCurrentSection] = useState<SectionNames>(
-    window.location.hash.split("#")[1] as SectionNames
+    (window.location.hash.split("#")[1] as SectionNames) || ""
   )
+
   const [isFirstRender, setIsFirstRender] = useState(true)
   const callbacks = useRef<Record<FullPageEvents, Record<string, () => void>>>({
     onLeave: {},
