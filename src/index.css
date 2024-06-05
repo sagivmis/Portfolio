@@ -8,6 +8,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: var(--normal);
+  transition: 200ms color ease-in;
+}
 @keyframes flipInX {
   0% {
     -webkit-animation-timing-function: ease-in;
