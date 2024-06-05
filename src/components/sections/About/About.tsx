@@ -24,8 +24,6 @@ const About = (props: IAbout) => {
     [currentSection]
   )
 
-  const handleChangeRenderedStyle = () => {}
-
   useEffect(() => {
     if (!isCurrentSection)
       setTimeout(() => {
@@ -43,8 +41,11 @@ const About = (props: IAbout) => {
   return (
     <section className={clsx("about-container", className)}>
       <div className='about-content-container' style={style}>
-        {/* <img src={Sagiv} alt='image' className='about-logo' /> */}
-        <h2 className='sagiv-logo'>Sagiv Mishaan</h2>
+        <h2 className='sagiv-logo fill-title'>
+          <a href=''>
+            <span>Sagiv Mishaan</span>
+          </a>
+        </h2>
         <span className='about-content'>
           <div className='top-content-container'>
             <div className='about-items'>
