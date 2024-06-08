@@ -37,40 +37,42 @@ const Projects = (props: IProjects) => {
 
   return (
     <section className={clsx("projects-container", className)} style={style}>
-      {projects.map(
-        (project, index) =>
-          index % 3 === 0 && (
-            <div className='slide'>
-              {projects[index] && (
-                <Project
-                  project={projects[index]}
-                  selected={selectedProjectIndex === index}
-                  removeSelection={handleResetSelectedProject}
-                  index={index}
-                  changeSelection={setSelectedProjectIndex}
-                />
-              )}
-              {projects[index + 1] && (
-                <Project
-                  project={projects[index + 1]}
-                  selected={selectedProjectIndex === index + 1}
-                  removeSelection={handleResetSelectedProject}
-                  index={index + 1}
-                  changeSelection={setSelectedProjectIndex}
-                />
-              )}
-              {projects[index + 2] && (
-                <Project
-                  project={projects[index + 2]}
-                  selected={selectedProjectIndex === index + 2}
-                  removeSelection={handleResetSelectedProject}
-                  index={index + 2}
-                  changeSelection={setSelectedProjectIndex}
-                />
-              )}
-            </div>
-          )
-      )}
+      <div className='content-container'>
+        {projects.map(
+          (project, index) =>
+            index % 3 === 0 && (
+              <div className='slide'>
+                {projects[index] && (
+                  <Project
+                    project={projects[index]}
+                    selected={selectedProjectIndex === index}
+                    removeSelection={handleResetSelectedProject}
+                    index={index}
+                    changeSelection={setSelectedProjectIndex}
+                  />
+                )}
+                {projects[index + 1] && (
+                  <Project
+                    project={projects[index + 1]}
+                    selected={selectedProjectIndex === index + 1}
+                    removeSelection={handleResetSelectedProject}
+                    index={index + 1}
+                    changeSelection={setSelectedProjectIndex}
+                  />
+                )}
+                {projects[index + 2] && (
+                  <Project
+                    project={projects[index + 2]}
+                    selected={selectedProjectIndex === index + 2}
+                    removeSelection={handleResetSelectedProject}
+                    index={index + 2}
+                    changeSelection={setSelectedProjectIndex}
+                  />
+                )}
+              </div>
+            )
+        )}
+      </div>
     </section>
   )
 }

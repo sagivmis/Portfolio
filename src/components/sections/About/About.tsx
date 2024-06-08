@@ -39,10 +39,11 @@ const About = (props: IAbout) => {
 
   return (
     <section className={clsx("about-container", className)}>
-      <div className='about-content-container' style={style}>
+      <div className='about-content-container content-container' style={style}>
         <h2 className='sagiv-logo'>
-          <a href=''>
+          <a href='#welcome'>
             <span>Sagiv Mishaan</span>
+            <span className='blinking-dot' />
           </a>
         </h2>
         <span className='about-content'>
@@ -113,12 +114,14 @@ const About = (props: IAbout) => {
           <div className='bottom-content-container'>
             <div className='bottom-content'>
               <div className='general-info-container'>
-                <Avatar
-                  alt='Sagiv Mishaan'
-                  src={Profile}
-                  className='profile-avatar'
-                  classes={{ img: "profile-image" }}
-                />
+                <div className='profile-image-container'>
+                  <Avatar
+                    alt='Sagiv Mishaan'
+                    src={Profile}
+                    className='profile-avatar'
+                    classes={{ img: "profile-image" }}
+                  />
+                </div>
                 <h4 className='about-me-title'>Who's this guy?</h4>
                 <p className='about-me-content'>
                   I'm a Full-Stack Engineer for 8200 unit in Israel. I have
@@ -130,15 +133,18 @@ const About = (props: IAbout) => {
                 </p>
               </div>
               <div className='skillset'>
-                {showSkillset &&
-                  skillset.map((skill, index) => (
-                    <ProgressBar
-                      label={skill.label}
-                      value={skill.value}
-                      max={100}
-                      animationDelay={index * 20}
-                    />
-                  ))}
+                <div className='bubble'></div>
+                <div className='skills'>
+                  {showSkillset &&
+                    skillset.map((skill, index) => (
+                      <ProgressBar
+                        label={skill.label}
+                        value={skill.value}
+                        max={100}
+                        animationDelay={index * 20}
+                      />
+                    ))}
+                </div>
               </div>
             </div>
           </div>

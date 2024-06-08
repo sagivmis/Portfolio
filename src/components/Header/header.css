@@ -4,11 +4,24 @@
   z-index: 5;
   display: flex;
   align-items: flex-end;
-  /* background-color: var(--background); */
+  background-color: var(--dk-background);
 
-  padding: var(--padding);
-  inline-size: calc(100% - calc(var(--padding) * 2));
-  block-size: calc(var(--header-footer-block-size) - calc(var(--padding) * 2));
+  padding: var(--padding-block) var(--padding-inline);
+  inline-size: calc(100% - calc(var(--padding-inline) * 2));
+  block-size: calc(
+    var(--header-footer-block-size) - calc(var(--padding-block) * 2)
+  );
 
   transition: all 0.3s ease-out;
+  animation: 0.4s addBottomBorder 0.4s forwards ease-out;
 }
+
+@keyframes addBottomBorder {
+  to {
+    border-bottom: 0.15em solid var(--detail);
+  }
+}
+/* 
+.header-container a {
+  color: var(--background);
+} */

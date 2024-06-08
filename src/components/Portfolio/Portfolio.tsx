@@ -26,7 +26,7 @@ function Portfolio() {
 
   return (
     <div className='portfolio-container'>
-      <Header />
+      <Header currentSection={currentSection} />
       <div className='body-container'>
         <ReactFullpage
           credits={{ enabled: false }}

@@ -19,7 +19,7 @@ canvas.skyline-canvas {
 }
 
 section.welcome-container {
-  background-color: #333;
+  background-color: var(--dk-background);
   color: #fff;
 
   align-items: center;
@@ -66,7 +66,6 @@ div.welcome-content-container {
   --border-width: 0.1em;
   --animation-speed: 0.5s;
   --color: #e31b6d;
-  /* --color: var(--); */
   --border-color: #fff;
   color: var(--color);
   position: relative;

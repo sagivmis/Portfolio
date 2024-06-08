@@ -1,20 +1,46 @@
+import { CSSProperties, useEffect, useState } from "react"
+import { SectionNames } from "../../../types"
 import "./link-bar.css"
 
-const LinkBar = () => {
+interface ILinkBar {
+  currentSection: SectionNames
+}
+const LinkBar = (props: ILinkBar) => {
+  const { currentSection } = props
+  const [linkStyle, setLinkStyle] = useState<CSSProperties>()
+
+  useEffect(() => {
+    if (currentSection === "about")
+      setLinkStyle({
+        color: "var(--background)"
+      })
+    else
+      setLinkStyle({
+        color: "black"
+      })
+  }, [currentSection])
   return (
     <nav className='link-bar-container'>
       <ul className='link-list'>
         <li className='link'>
-          <a href='#about'>About</a>
+          <a href='#about' style={linkStyle}>
+            About
+          </a>
         </li>
         <li className='link'>
-          <a href='#experience'>Experience</a>
+          <a href='#experience' style={linkStyle}>
+            Experience
+          </a>
         </li>
         <li className='link'>
-          <a href='#projects'>Projects</a>
+          <a href='#projects' style={linkStyle}>
+            Projects
+          </a>
         </li>
         <li className='link'>
-          <a href='#contact'>Contact</a>
+          <a href='#contact' style={linkStyle}>
+            Contact
+          </a>
         </li>
       </ul>
     </nav>

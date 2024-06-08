@@ -9,7 +9,7 @@ a {
 }
 
 a:hover {
-  color: var(--normal);
+  color: var(--detail) !important;
   transition: 200ms color ease-in;
 }
 @keyframes flipInX {

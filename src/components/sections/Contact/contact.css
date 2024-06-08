@@ -4,6 +4,10 @@
   justify-content: flex-end;
   align-items: center;
 }
+
+div.contact-content-container {
+  align-items: flex-end;
+}
 .contact-footer {
   inline-size: 100%;
   block-size: 20%;
@@ -20,7 +24,7 @@
 }
 
 .contact-link {
-  color: var(--detail);
+  color: var(--soft);
 }
 
 .contact {

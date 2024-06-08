@@ -22,7 +22,7 @@ const Welcome = (props: IWelcome) => {
   }, [currentSection, isCurrentSection])
   return (
     <section className={clsx("welcome-container", className)} style={style}>
-      <div className='welcome-content-container'>
+      <div className='welcome-content-container content-container'>
         <div className='intro'>
           <div className='upper'>
             <h4 className='welcome-title'>Hello, I'm</h4>

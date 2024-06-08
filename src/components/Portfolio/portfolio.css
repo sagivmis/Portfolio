@@ -5,13 +5,15 @@ html {
 #root {
   --primary: #18416b;
   --headline-dark: #18416b;
-  --detail: #7caee1;
+  --soft: #7caee1;
   --normal: #3985d2;
   --normal-text: #393939;
   --light-green: #acbca4;
   --light-red: #d4a4ac;
   --background: #f4f7fa;
+  --dk-background: #333;
   --divider: #d1d5db;
+  --detail: #e31b6d;
 
   font-family: Raleway, sans-serif;
   line-height: 1.5;
@@ -22,11 +24,13 @@ html {
 
   text-align: center;
   --padding: 1em;
+  --padding-inline: 1em;
+  --padding-block: 0.5em;
   /* padding: var(--padding); */
   inline-size: 100vw;
   block-size: 100vh;
 
-  --header-footer-block-size: 7%;
+  --header-footer-block-size: 4%;
 }
 
 h1,
@@ -66,6 +70,11 @@ h6 {
   /* overflow-y: auto; */
 }
 
+div.content-container {
+  display: flex;
+  inline-size: 100%;
+  block-size: 95%;
+}
 section {
   display: flex;
   flex-direction: column;
@@ -105,5 +114,5 @@ div#fp-nav.fp-right.hidden {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--detail);
+  background: var(--soft);
 }

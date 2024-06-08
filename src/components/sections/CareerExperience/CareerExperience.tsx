@@ -54,7 +54,10 @@ const CareerExperience = (props: ICareerExperience) => {
 
   return (
     <section className={clsx("career-experience-section-container", className)}>
-      <div className='career-experience-content-container' style={style}>
+      <div
+        className='career-experience-content-container content-container'
+        style={style}
+      >
         <div className='summary-container'>
           <span className='summary'>
             Experienced Full-Stack Engineer with a passion for innovative
