@@ -10,6 +10,7 @@ import {
   useMemo,
   useRef
 } from "react"
+import MinimizeIcon from "@mui/icons-material/Minimize"
 import useOnClickOutside from "../../../../hooks/useOnClickOutside"
 
 interface IProject {
@@ -39,36 +40,37 @@ const Project = (props: IProject) => {
       removeSelection()
     }
   }, [removeSelection, isSelected])
+
   useOnClickOutside(projectRef, handleRemoveSelection)
 
   return (
     <div
       className={clsx("project", { selected: isSelected })}
-      onClick={
-        !isSelected
-          ? () => {
-              changeSelection(index)
-              onClick()
-            }
-          : () => {
-              removeSelection()
-              onClick()
-            }
-      }
+      onClick={() => {
+        changeSelection(index)
+        onClick && onClick()
+      }}
       ref={projectRef}
     >
+      <div
+        className='minimize-project-container'
+        onClick={() => {
+          removeSelection()
+          onClick && onClick()
+        }}
+      >
+        {isSelected && <MinimizeIcon />}
+      </div>
       <div className='project-info'>
-        <h3 className='project-title'>{project.title}</h3>
+        {isSelected && <h3 className='project-title'>{project.title}</h3>}
         <p className='project-content'>{isSelected && project.content}</p>
       </div>
       <div className='project-images-container'>
-        {isSelected && (
-          <img
-            className='project-image'
-            src={project.images ? project.images.img1 : Skeleton}
-            alt='example'
-          />
-        )}
+        <img
+          className='project-image'
+          src={project.images ? project.images.img1 : Skeleton}
+          alt='example'
+        />
       </div>
     </div>
   )

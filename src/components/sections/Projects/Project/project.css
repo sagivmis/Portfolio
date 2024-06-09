@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
+  position: relative;
 
   background-color: rgba(180, 180, 180, 0.1356);
   padding: 1em;
@@ -60,4 +61,15 @@
 .project.selected .project-content {
   max-inline-size: 95%;
   animation: 400ms fadeIn 300ms forwards ease-out;
+}
+
+.minimize-project-container {
+  position: absolute;
+  right: 1%;
+
+  cursor: pointer;
+}
+
+.minimize-project-container svg {
+  fill: var(--normal-text);
 }

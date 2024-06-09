@@ -24,6 +24,10 @@ const Projects = (props: IProjects) => {
     [currentSection]
   )
 
+  const handleChangeSelection = (index: number) => {
+    if (index !== selectedProjectIndex) setSelectedProjectIndex(index)
+  }
+
   const handleResetSelectedProject = useCallback(() => {
     setSelectedProjectIndex(-1)
   }, [])
@@ -48,7 +52,7 @@ const Projects = (props: IProjects) => {
                     selected={selectedProjectIndex === index}
                     removeSelection={handleResetSelectedProject}
                     index={index}
-                    changeSelection={setSelectedProjectIndex}
+                    changeSelection={handleChangeSelection}
                   />
                 )}
                 {projects[index + 1] && (
