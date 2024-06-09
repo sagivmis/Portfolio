@@ -55,7 +55,7 @@ const Project = (props: IProject) => {
       <div
         className='minimize-project-container'
         onClick={() => {
-          removeSelection()
+          handleRemoveSelection()
           onClick && onClick()
         }}
       >

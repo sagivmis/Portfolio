@@ -29,6 +29,7 @@ const Projects = (props: IProjects) => {
   }
 
   const handleResetSelectedProject = useCallback(() => {
+    console.log("in ")
     setSelectedProjectIndex(-1)
   }, [])
 
@@ -39,15 +40,20 @@ const Projects = (props: IProjects) => {
     else setTimeout(() => isCurrentSection && setStyle(undefined), 700 / 3)
   }, [currentSection, isCurrentSection])
 
+  useEffect(() => {
+    console.log(selectedProjectIndex)
+  }, [selectedProjectIndex])
+
   return (
     <section className={clsx("projects-container", className)} style={style}>
       <div className='content-container'>
         {projects.map(
           (project, index) =>
             index % 3 === 0 && (
-              <div className='slide'>
+              <div className='slide' key={`${index}`}>
                 {projects[index] && (
                   <Project
+                    key={`${index}`}
                     project={projects[index]}
                     selected={selectedProjectIndex === index}
                     removeSelection={handleResetSelectedProject}
@@ -57,20 +63,22 @@ const Projects = (props: IProjects) => {
                 )}
                 {projects[index + 1] && (
                   <Project
+                    key={`${index + 1}`}
                     project={projects[index + 1]}
                     selected={selectedProjectIndex === index + 1}
                     removeSelection={handleResetSelectedProject}
                     index={index + 1}
-                    changeSelection={setSelectedProjectIndex}
+                    changeSelection={handleChangeSelection}
                   />
                 )}
                 {projects[index + 2] && (
                   <Project
+                    key={`${index + 2}`}
                     project={projects[index + 2]}
                     selected={selectedProjectIndex === index + 2}
                     removeSelection={handleResetSelectedProject}
                     index={index + 2}
-                    changeSelection={setSelectedProjectIndex}
+                    changeSelection={handleChangeSelection}
                   />
                 )}
               </div>
