@@ -11,6 +11,7 @@
   block-size: calc(
     var(--header-footer-block-size) - calc(var(--padding-block) * 2)
   );
+  min-block-size: calc(1em + var(--padding-block));
 
   transition: all 0.3s ease-out;
   animation: 0.4s addBottomBorder 0.4s forwards ease-out;
