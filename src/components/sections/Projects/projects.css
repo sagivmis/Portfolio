@@ -3,7 +3,7 @@ section.projects-container {
   inline-size: calc(98% - 2em);
   gap: 1em;
   padding-block-start: 3em;
-  block-size: calc(var(--100vh) - 4em);
+  block-size: calc(var(--100vh) - calc(var(--100vh) * 0.1632));
 }
 
 div.content-container.projects-content-container {
