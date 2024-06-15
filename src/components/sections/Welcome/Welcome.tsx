@@ -30,11 +30,13 @@ const Welcome = (props: IWelcome) => {
               <a href='#about' className='border-animation'>
                 <div className='border-animation__inner'>Sagiv Mishaan</div>
               </a>
-            </div>{" "}
+            </div>
             <h4>.</h4>
           </div>
           <div className='lower'>
-            <h4 className='welcome-subtitle'>I'm a full-stack web developer</h4>
+            <h4 className='welcome-subtitle'>
+              I'm a full-stack web developer.
+            </h4>
           </div>
         </div>
       </div>
