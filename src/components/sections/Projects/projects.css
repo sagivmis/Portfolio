@@ -1,9 +1,14 @@
 section.projects-container {
   flex-direction: row;
-  inline-size: calc(95% - 2em);
+  inline-size: calc(98% - 2em);
   gap: 1em;
+  padding-block-start: 3em;
+  block-size: calc(var(--100vh) - 4em);
 }
 
+div.content-container.projects-content-container {
+  block-size: 100%;
+}
 .projects-container .slide div.fp-overflow {
   flex-direction: column;
   gap: 1em;

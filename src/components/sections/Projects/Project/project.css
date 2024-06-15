@@ -16,10 +16,6 @@
   transition: inline-size 500ms ease-out;
 }
 
-div.content-container.projects-content-container {
-  margin-block-start: 2em;
-  block-size: calc(100% - 2em);
-}
 .project.selected {
   filter: brightness(100%);
   transition: filter 500ms;
