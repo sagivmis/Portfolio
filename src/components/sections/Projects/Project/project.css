@@ -32,7 +32,6 @@ div.content-container.projects-content-container {
 }
 
 .projects-container .slide .fp-overflow {
-  block-size: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
