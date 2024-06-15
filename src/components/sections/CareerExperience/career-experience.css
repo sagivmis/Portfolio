@@ -8,7 +8,6 @@ section.career-experience-section-container {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  overflow-y: auto;
 }
 
 .career-experience-container {
