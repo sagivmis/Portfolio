@@ -46,7 +46,7 @@ const About = (props: IAbout) => {
             <span className='blinking-dot' />
           </a>
         </h2>
-        <span className='about-content'>
+        <div className='about-content'>
           <div className='top-content-container'>
             <div className='about-items'>
               <div
@@ -148,7 +148,7 @@ const About = (props: IAbout) => {
               </div>
             </div>
           </div>
-        </span>
+        </div>
       </div>
     </section>
   )

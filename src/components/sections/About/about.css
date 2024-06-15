@@ -10,7 +10,7 @@
 h2.sagiv-logo {
   font-family: Montserrat, sans-serif;
   font-family: Raleway, sans-serif;
-  font-size: 62px;
+  font-size: 48px;
   letter-spacing: 0.03em;
 
   user-select: none;
@@ -20,14 +20,15 @@ h2.sagiv-logo {
   /* stroke: black; */
   filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.1));
   animation: slideInRight 1s ease both;
+  block-size: 10%;
 }
-span.about-content {
+div.about-content {
   display: flex;
   inline-size: 100%;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  min-block-size: 90%;
+  min-block-size: unset;
 }
 
 section.about-container {
@@ -43,11 +44,14 @@ section.about-container {
 
 .top-content-container {
   inline-size: 100%;
-  block-size: 30%;
+
+  flex-wrap: wrap;
+  margin-block-end: 2em;
+  block-size: 35%;
 }
 
 .bottom-content-container {
-  block-size: 70%;
+  block-size: 65%;
   inline-size: 100%;
 }
 
@@ -55,10 +59,11 @@ section.about-container {
   display: flex;
   block-size: 100%;
   inline-size: 90%;
-  flex-direction: row;
+  flex-direction: column;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+
   gap: 1em;
 }
 
@@ -67,15 +72,15 @@ section.about-container {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  inline-size: 25%;
+  inline-size: 45%;
   animation: 550ms flipInX 500ms ease both;
 }
 
 .hexagon {
   clip-path: polygon(25% 0, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0 50%);
 
-  width: 5em;
-  height: 4em;
+  width: 4em;
+  height: 3em;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 8px 1px;
   display: flex;
   align-items: center;
@@ -140,6 +145,7 @@ svg.about-item-icon {
   inline-size: 90%;
   justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 div.profile-avatar {
@@ -172,7 +178,7 @@ div.profile-image-container {
   align-items: center;
   justify-content: center;
   block-size: 100%;
-  inline-size: calc(50% - 0.5em);
+  inline-size: unset;
 }
 
 a.contact {
@@ -194,9 +200,10 @@ a.contact {
 }
 
 .skillset {
-  inline-size: 50%;
   position: relative;
-  inline-size: calc(50% - 0.5em);
+
+  margin-block: 2em;
+  inline-size: 100%;
 }
 
 .skills {
@@ -220,7 +227,7 @@ div.bubble {
   transform-origin: 50% 50%;
   transform: translate(0px, 0px);
   position: absolute;
-  left: -5.5em;
+  left: -2em;
   top: -3em;
   display: inline-block;
   z-index: 0;
@@ -249,6 +256,55 @@ div.bubble {
     var(--detail) 100%
   );
   /* animation: rotateBubble 1s infinite; */
+}
+
+@media only screen and (min-width: 768px) {
+  .hexagon {
+    width: 5em;
+    height: 4em;
+  }
+  h2.sagiv-logo {
+    font-size: 62px;
+    /* margin-block-end: 1em; */
+  }
+
+  .about-items {
+    flex-wrap: unset;
+    /* overflow-y: auto; */
+  }
+
+  .top-content-container {
+    flex-wrap: unset;
+    margin-block-end: unset;
+    block-size: 30%;
+  }
+
+  .bottom-content-container {
+    block-size: 70%;
+  }
+  .about-item-container {
+    inline-size: 25%;
+  }
+
+  div.about-content {
+    min-block-size: 90%;
+  }
+
+  .bottom-content {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .general-info-container {
+    inline-size: calc(50% - 0.5em);
+  }
+  .skillset {
+    inline-size: 50%;
+    inline-size: calc(50% - 0.5em);
+    margin-block: unset;
+  }
+  div.bubble {
+    left: -5.5em;
+  }
 }
 
 @keyframes slideInRightBubble {
