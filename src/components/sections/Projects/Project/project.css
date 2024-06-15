@@ -6,7 +6,7 @@
   flex-direction: column;
   position: relative;
 
-  /* background-color: rgba(180, 180, 180, 0.1356); */
+  background-color: rgba(180, 180, 180, 0.1356);
   background: url("../../../../assets/projects/skeleton.png");
   filter: brightness(50%) blur(1px);
   /* background-size: 100; */
