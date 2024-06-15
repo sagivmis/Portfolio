@@ -25,8 +25,8 @@ function Portfolio() {
   }
 
   useEffect(() => {
-    const vh = window.innerHeight * 0.01
-    document.documentElement.style.setProperty("--vh", `${vh}px`)
+    const vh = window.innerHeight
+    document.documentElement.style.setProperty("--100vh", `${vh}px`)
   }, [])
 
   return (

@@ -14,7 +14,7 @@ html {
   --dk-background: #333;
   --divider: #d1d5db;
   --detail: #e31b6d;
-  --vh: 1vh;
+  --100vh: 100vh;
 
   font-family: Raleway, sans-serif;
   line-height: 1.5;
@@ -80,7 +80,7 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  block-size: calc(calc(var(--vh, 1vh) * 100) - 2em);
+  block-size: calc(var(--100vh) - 2em);
   inline-size: calc(100% - 2em);
   padding: 1em;
 }
