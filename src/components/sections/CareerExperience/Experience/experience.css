@@ -13,7 +13,27 @@
   block-size: 80%;
   cursor: pointer;
   visibility: hidden;
-  animation: 800ms slideInBottom 400ms forwards;
+  animation: 800ms slideInBottom 400ms forwards,
+    10400ms bouncy 1800ms forwards infinite;
+  /* animation: 800ms slideInBottom 400ms forwards; */
+}
+@keyframes bouncy {
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+  2% {
+    transform: scale(0.9, 1.1);
+  }
+  4% {
+    transform: scale(1.1, 0.9);
+  }
+  8% {
+    transform: scale(0.95, 1.05);
+  }
+  12% {
+    transform: scale(1, 1);
+  }
 }
 .experience-container.selected {
   visibility: visible;

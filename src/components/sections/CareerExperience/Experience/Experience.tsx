@@ -36,7 +36,10 @@ const Experience = (props: IExperience) => {
       style={
         selected || isPrevSelected
           ? undefined
-          : { animationDelay: `${600 + index * 200}ms` }
+          : {
+              // animationDelay: `${600 + index * 200}ms`
+              animationDelay: `${600 + index * 200}ms, ${1800 + index * 50}ms`
+            }
       }
       onClick={onClick}
       ref={experienceRef}
