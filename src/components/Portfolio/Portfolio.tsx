@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Header from "../Header"
 import { Contact, About, Projects, Skills } from "../sections"
 import "./portfolio.css"
@@ -23,6 +23,11 @@ function Portfolio() {
     currentSection,
     callbacks
   }
+
+  useEffect(() => {
+    const vh = window.innerHeight * 0.01
+    document.documentElement.style.setProperty("--vh", `${vh}px`)
+  }, [])
 
   return (
     <div className='portfolio-container'>
