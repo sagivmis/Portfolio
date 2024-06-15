@@ -8,11 +8,11 @@
 
   /* background-color: rgba(180, 180, 180, 0.1356); */
   background: url("../../../../assets/projects/skeleton.png");
-  filter: brightness(50%);
+  filter: brightness(50%) blur(1px);
   /* background-size: 100; */
   padding: 1em;
   border-radius: 15px;
-  min-block-size: 30vh;
+  min-block-size: 25vh;
   transition: inline-size 500ms ease-out;
 }
 

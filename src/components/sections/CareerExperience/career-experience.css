@@ -17,7 +17,7 @@ section.career-experience-section-container {
 
   gap: 1em;
 
-  block-size: 85%;
+  /* block-size: 85%; */
   align-items: flex-start;
   justify-items: center;
 }
