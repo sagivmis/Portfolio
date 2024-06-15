@@ -1,5 +1,6 @@
 html {
   background-color: var(--background);
+  --100vh: 100vh;
 }
 
 #root {
@@ -14,7 +15,6 @@ html {
   --dk-background: #333;
   --divider: #d1d5db;
   --detail: #e31b6d;
-  --100vh: 100vh;
 
   font-family: Raleway, sans-serif;
   line-height: 1.5;

@@ -26,7 +26,11 @@ function Portfolio() {
 
   useEffect(() => {
     const vh = window.innerHeight
-    document.documentElement.style.setProperty("--100vh", `${vh}px`)
+    const setVH = () =>
+      document.documentElement.style.setProperty("--100vh", `${vh}px`)
+    setVH()
+    document.addEventListener("resize", setVH)
+    return () => document.removeEventListener("resize", setVH)
   }, [])
 
   return (
