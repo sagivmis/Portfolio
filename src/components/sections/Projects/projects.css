@@ -5,10 +5,15 @@ section.projects-container {
 }
 
 .projects-container .slide div.fp-overflow {
-  flex-direction: row;
+  flex-direction: column;
   gap: 1em;
 }
 
 .projects-container .fp-slides {
   inline-size: 100%;
+}
+@media only screen and (min-width: 768px) {
+  .projects-container .slide div.fp-overflow {
+    flex-direction: row;
+  }
 }

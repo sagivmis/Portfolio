@@ -43,12 +43,23 @@ const Project = (props: IProject) => {
 
   useOnClickOutside(projectRef, handleRemoveSelection)
 
+  console.log(project.images ? project.images : "nill")
   return (
     <div
       className={clsx("project", { selected: isSelected })}
       onClick={() => {
         changeSelection(index)
         onClick && onClick()
+      }}
+      style={{
+        background: `url(${
+          project?.images
+            ? project.images.img1
+            : "src/assets/projects/skeleton.png"
+        })`,
+        backgroundSize: "200%",
+        backgroundPositionY: "0%",
+        backgroundRepeat: "no-repeat"
       }}
       ref={projectRef}
     >
@@ -66,11 +77,11 @@ const Project = (props: IProject) => {
         <p className='project-content'>{isSelected && project.content}</p>
       </div>
       <div className='project-images-container'>
-        <img
+        {/* <img
           className='project-image'
           src={project.images ? project.images.img1 : Skeleton}
           alt='example'
-        />
+        /> */}
       </div>
     </div>
   )

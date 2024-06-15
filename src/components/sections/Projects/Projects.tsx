@@ -46,7 +46,7 @@ const Projects = (props: IProjects) => {
 
   return (
     <section className={clsx("projects-container", className)} style={style}>
-      <div className='content-container'>
+      <div className='projects-content-container content-container'>
         {projects.map(
           (project, index) =>
             index % 3 === 0 && (

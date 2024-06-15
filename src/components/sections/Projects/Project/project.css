@@ -6,15 +6,24 @@
   flex-direction: column;
   position: relative;
 
-  background-color: rgba(180, 180, 180, 0.1356);
+  /* background-color: rgba(180, 180, 180, 0.1356); */
+  background: url("../../../../assets/projects/skeleton.png");
+  filter: brightness(50%);
+  /* background-size: 100; */
   padding: 1em;
   border-radius: 15px;
   min-block-size: 30vh;
   transition: inline-size 500ms ease-out;
 }
 
+div.content-container.projects-content-container {
+  margin-block-start: 2em;
+  block-size: calc(100% - 2em);
+}
 .project.selected {
-  inline-size: 300%;
+  filter: brightness(100%);
+  transition: filter 500ms;
+  /* inline-size: 300%; */
 }
 
 .project-image {
@@ -39,9 +48,14 @@
 }
 
 .project-title {
-  color: var(--headline-dark);
+  color: var(--detail);
   text-wrap: nowrap;
+  background-color: #fff;
+  padding-block: 0.1em;
+  padding-inline: 0.5em;
+  border-radius: 5px;
 }
+
 .project-images-container {
   display: flex;
   flex-direction: column;
@@ -54,13 +68,19 @@
 
 .project .project-content {
   opacity: 0;
-  max-block-size: 10vh;
-  overflow-y: auto;
+  /* max-block-size: 10vh; */
+  /* overflow-y: auto; */
 }
 
 .project.selected .project-content {
   max-inline-size: 95%;
   animation: 400ms fadeIn 300ms forwards ease-out;
+  color: #fff;
+  padding-block: 0.1em;
+  padding-inline: 0.5em;
+  background-color: var(--detail);
+  border-radius: 5px;
+  /* filter: unset; */
 }
 
 .minimize-project-container {
