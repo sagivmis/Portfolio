@@ -23,8 +23,6 @@ section.career-experience-section-container {
 }
 
 .summary {
-  margin-inline-start: -3em;
-  margin-block-end: 0.25em;
   font-style: italic;
   font-weight: 300;
   font-size: 18px;
@@ -33,4 +31,6 @@ section.career-experience-section-container {
 .summary-container {
   block-size: 15%;
   animation: slideInTop 500ms ease;
+  margin-block-end: 1.25em;
+  text-align: left;
 }
