@@ -3,7 +3,7 @@
 https://sagivmishaan.dev/
 
 <details>
-    <summary>portfolio v1</summary>
+    <summary>v1</summary>
     
     - snap scrolling  
     - animations  
