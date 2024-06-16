@@ -1,18 +1,18 @@
 section.projects-container {
   flex-direction: row;
-  /* inline-size: 100%; */
   inline-size: calc(100% - 2em);
   gap: 1em;
-  /* padding-block-start: 3em; */
-  block-size: var(--100vh);
-  /* block-size: calc(100vh); */
+  block-size: calc(var(--100vh) - 4em);
+  padding-block-start: 2em;
+  padding-block-end: 2em;
+  justify-content: center;
+  align-items: center;
 }
 
 div.content-container.projects-content-container {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  padding-block: 5em;
   block-size: 90%;
 }
 .projects-container .slide div.fp-overflow {
