@@ -5,7 +5,7 @@ import Profile from "./profile.jpeg"
 
 import AlgoTradeProject from "./projects/algo-trade-bot"
 import AIChatProject from "./projects/ai-chat"
-import Skeleton from "./projects/skeleton.png"
+import Skeleton from "./projects/skeleton/skeleton.png"
 
 export {
   GitHub,

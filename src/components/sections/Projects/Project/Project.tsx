@@ -8,10 +8,14 @@ import {
   memo,
   useCallback,
   useMemo,
-  useRef
+  useRef,
+  useState
 } from "react"
 import MinimizeIcon from "@mui/icons-material/Minimize"
 import useOnClickOutside from "../../../../hooks/useOnClickOutside"
+import FullscreenOutlinedIcon from "@mui/icons-material/FullscreenOutlined"
+import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined"
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined"
 
 interface IProject {
   project: ProjectType
@@ -32,21 +36,37 @@ const Project = (props: IProject) => {
     changeSelection
   } = props
 
+  const [isExpanded, setIsExpanded] = useState(false)
+
   const projectRef = useRef<HTMLDivElement>(null)
   const isSelected = useMemo(() => selected, [selected])
 
-  const handleRemoveSelection = useCallback(() => {
+  const handleClickOutside = useCallback(() => {
     if (isSelected) {
       removeSelection()
     }
-  }, [removeSelection, isSelected])
+    if (isExpanded) {
+      setIsExpanded(false)
+    }
+  }, [isSelected, isExpanded, removeSelection])
 
-  useOnClickOutside(projectRef, handleRemoveSelection)
+  const handleExpandProject = useCallback(() => {
+    setIsExpanded(true)
+  }, [])
+
+  const handleMinimizeProject = useCallback(() => {
+    setIsExpanded(false)
+  }, [])
+
+  useOnClickOutside(projectRef, handleClickOutside)
 
   console.log(project.images ? project.images : "nill")
   return (
     <div
-      className={clsx("project", { selected: isSelected })}
+      className={clsx("project", {
+        selected: isSelected,
+        expanded: isExpanded
+      })}
       onClick={() => {
         changeSelection(index)
         onClick && onClick()
@@ -55,7 +75,7 @@ const Project = (props: IProject) => {
         background: `url(${
           project?.images
             ? project.images.img1
-            : "src/assets/projects/skeleton.png"
+            : "src/assets/projects/skeleton/skeleton.png"
         })`,
         backgroundSize: "150%",
         // backgroundPositionY: "0%",
@@ -63,28 +83,29 @@ const Project = (props: IProject) => {
       }}
       ref={projectRef}
     >
-      <div
-        className='minimize-project-container'
-        onClick={() => {
-          handleRemoveSelection()
-          onClick && onClick()
-        }}
-      >
-        {isSelected && <MinimizeIcon />}
-      </div>
+      <div className='background'></div>
+      {isSelected && (
+        <div className='project-controls'>
+          <FullscreenOutlinedIcon
+            className='project-control'
+            onClick={isExpanded ? handleMinimizeProject : handleExpandProject}
+          />
+          <CloseOutlinedIcon
+            className='project-control'
+            onClick={() => {
+              handleClickOutside()
+              onClick && onClick()
+            }}
+          />
+        </div>
+      )}
       <div
         className='project-info'
         style={{ visibility: !isSelected ? "hidden" : "visible" }}
       >
         <h3 className='project-title'>{project.title}</h3>
         <p className='project-content'>{project.content}</p>
-      </div>
-      <div className='project-images-container'>
-        {/* <img
-          className='project-image'
-          src={project.images ? project.images.img1 : Skeleton}
-          alt='example'
-        /> */}
+        {isExpanded && "images"}
       </div>
     </div>
   )
