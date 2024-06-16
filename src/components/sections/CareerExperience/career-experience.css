@@ -1,12 +1,13 @@
 section.career-experience-section-container {
   justify-content: flex-end;
+  block-size: calc(var(--100vh) - 7em);
 }
-.career-experience-content-container {
+
+div.career-experience-content-container {
   inline-size: 100%;
   block-size: 92.5%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -33,4 +34,10 @@ section.career-experience-section-container {
   animation: slideInTop 500ms ease;
   margin-block-end: 1.25em;
   text-align: left;
+}
+
+@media only screen and (min-width: 768px) {
+  section.career-experience-section-container {
+    justify-content: center;
+  }
 }

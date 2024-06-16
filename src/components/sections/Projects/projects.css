@@ -2,18 +2,21 @@ section.projects-container {
   flex-direction: row;
   inline-size: calc(100% - 2em);
   gap: 1em;
-  block-size: calc(var(--100vh) - 4em);
-  padding-block-start: 2em;
-  padding-block-end: 2em;
+  block-size: calc(var(--100vh));
+  padding-block-start: 4em;
+  /* padding-block-end: 2em; */
   justify-content: center;
   align-items: center;
+  /* background-color: var(--headline-dark); */
 }
 
 div.content-container.projects-content-container {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  block-size: 90%;
+  block-size: unset;
+  z-index: 2;
+  padding-block: 2em;
 }
 .projects-container .slide div.fp-overflow {
   flex-direction: column;
@@ -25,6 +28,22 @@ div.content-container.projects-content-container {
 .projects-container .fp-slides {
   inline-size: 100%;
 }
+
+div#background {
+  background-image: url("https://images.unsplash.com/photo-1565896311009-382b9e813b19?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987");
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  filter: blur(1em);
+  block-size: 100%;
+  inline-size: 100%;
+  left: 0px;
+  opacity: 1;
+  top: 0px;
+  z-index: 1;
+  /* padding: 11em; */
+}
+
 @media only screen and (min-width: 768px) {
   .projects-container .slide div.fp-overflow {
     flex-direction: row;

@@ -46,6 +46,8 @@ const Projects = (props: IProjects) => {
 
   return (
     <section className={clsx("projects-container", className)} style={style}>
+      <div id='background'></div>
+
       <div className='projects-content-container content-container'>
         {projects.map(
           (project, index) =>

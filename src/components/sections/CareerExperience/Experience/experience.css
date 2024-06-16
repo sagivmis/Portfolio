@@ -9,8 +9,8 @@
   max-inline-size: 17.5em;
   max-block-size: 22.5em;
 
-  inline-size: 80%;
-  block-size: 80%;
+  inline-size: 100%;
+  block-size: 90%;
   cursor: pointer;
   visibility: hidden;
   animation: 800ms slideInBottom 400ms forwards,
