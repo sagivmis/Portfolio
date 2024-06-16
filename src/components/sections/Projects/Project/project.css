@@ -1,5 +1,5 @@
 .project {
-  inline-size: 90%;
+  inline-size: calc(100% - 2em);
   display: flex;
   align-items: center;
   justify-content: center;

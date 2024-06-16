@@ -1,17 +1,25 @@
 section.projects-container {
   flex-direction: row;
-  inline-size: calc(98% - 2em);
+  /* inline-size: 100%; */
+  inline-size: calc(100% - 2em);
   gap: 1em;
-  padding-block-start: 3em;
-  block-size: calc(var(--100vh) - calc(var(--100vh) * 0.1632));
+  /* padding-block-start: 3em; */
+  block-size: var(--100vh);
+  /* block-size: calc(100vh); */
 }
 
 div.content-container.projects-content-container {
-  block-size: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding-block: 5em;
+  block-size: 90%;
 }
 .projects-container .slide div.fp-overflow {
   flex-direction: column;
   gap: 1em;
+  /* margin-block: 1em; */
+  /* overflow: unset; */
 }
 
 .projects-container .fp-slides {

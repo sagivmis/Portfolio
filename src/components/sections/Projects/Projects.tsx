@@ -50,7 +50,7 @@ const Projects = (props: IProjects) => {
         {projects.map(
           (project, index) =>
             index % 3 === 0 && (
-              <div className='slide' key={`${index}`}>
+              <>
                 {projects[index] && (
                   <Project
                     key={`${index}`}
@@ -81,7 +81,8 @@ const Projects = (props: IProjects) => {
                     changeSelection={handleChangeSelection}
                   />
                 )}
-              </div>
+              </>
+              // </div>
             )
         )}
       </div>

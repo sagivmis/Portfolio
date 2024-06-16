@@ -57,8 +57,8 @@ const Project = (props: IProject) => {
             ? project.images.img1
             : "src/assets/projects/skeleton.png"
         })`,
-        backgroundSize: "200%",
-        backgroundPositionY: "0%",
+        backgroundSize: "150%",
+        // backgroundPositionY: "0%",
         backgroundRepeat: "no-repeat"
       }}
       ref={projectRef}
@@ -72,9 +72,12 @@ const Project = (props: IProject) => {
       >
         {isSelected && <MinimizeIcon />}
       </div>
-      <div className='project-info'>
-        {isSelected && <h3 className='project-title'>{project.title}</h3>}
-        <p className='project-content'>{isSelected && project.content}</p>
+      <div
+        className='project-info'
+        style={{ visibility: !isSelected ? "hidden" : "visible" }}
+      >
+        <h3 className='project-title'>{project.title}</h3>
+        <p className='project-content'>{project.content}</p>
       </div>
       <div className='project-images-container'>
         {/* <img
