@@ -12,7 +12,7 @@
   /* background-size: 100; */
   padding: 1em;
   border-radius: 15px;
-  min-block-size: 25vh;
+  min-block-size: 22vh;
   transition: inline-size 500ms ease-out;
 }
 
