@@ -84,7 +84,7 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  block-size: calc(var(--100vh) - 10em);
+  block-size: calc(var(--100vh) - 2em);
   inline-size: calc(100% - 2em);
   padding: 1em;
 }
