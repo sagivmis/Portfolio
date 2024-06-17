@@ -2,7 +2,7 @@ section.projects-container {
   flex-direction: row;
   inline-size: calc(100% - 2em);
   gap: 1em;
-  block-size: calc(var(--100vh));
+  block-size: calc(var(--100vh) - 5em);
   padding-block-start: 4em;
   /* padding-block-end: 2em; */
   justify-content: center;
