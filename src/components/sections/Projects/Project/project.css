@@ -6,13 +6,13 @@
   flex-direction: column;
   position: relative;
 
-  background-color: rgba(180, 180, 180, 0.1356);
-  background: url("../../../../assets/projects/skeleton/skeleton.png");
+  background-color: rgba(180, 180, 180, 0.356);
+  /* background: url("../../../../assets/projects/skeleton/skeleton.png"); */
   filter: brightness(50%);
 
   padding: 1em;
   border-radius: 15px;
-  min-block-size: 22vh;
+  min-block-size: 18vh;
   transition: inline-size 500ms ease-out;
 }
 .project.selected {
@@ -79,6 +79,7 @@
   padding-block: 0.1em;
   padding-inline: 0.5em;
   border-radius: 5px;
+  z-index: 1;
 }
 
 .project-images-container {
@@ -105,7 +106,6 @@
   padding-inline: 0.5em;
   background-color: var(--detail);
   border-radius: 5px;
-  /* filter: unset; */
 }
 
 .minimize-project-container {
@@ -133,4 +133,49 @@ svg.project-control {
   width: 1.125em;
   height: 1.125em;
   /* border-right: 1px solid black; */
+}
+
+div.background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  /* transform: translateX(5%) translateY(5%); */
+
+  /* opacity: 0.3; */
+
+  border-radius: 15px;
+  /* background-color: #fff; */
+}
+
+.project.expanded div.background {
+  opacity: 1;
+  filter: brightness(20%) blur(0.2em);
+}
+
+@media only screen and (min-width: 768px) {
+  .project {
+    inline-size: calc(50% - 3.5em);
+    max-inline-size: calc(50% - 3.5em);
+  }
+  .project.expanded {
+    max-inline-size: unset;
+  }
+}
+
+@media only screen and (min-width: 1068px) {
+  .project {
+    inline-size: calc(33% - 3.5em);
+    max-inline-size: calc(33% - 3.5em);
+    min-block-size: 20vh;
+  }
+
+  .project.expanded {
+    max-inline-size: unset;
+  }
+
+  div.background {
+    background-size: 200% !important;
+  }
 }

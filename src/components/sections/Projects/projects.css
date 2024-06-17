@@ -12,7 +12,8 @@ section.projects-container {
 
 div.content-container.projects-content-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 2em;
   block-size: unset;
   z-index: 2;

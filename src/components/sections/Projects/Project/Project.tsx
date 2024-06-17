@@ -71,19 +71,21 @@ const Project = (props: IProject) => {
         changeSelection(index)
         onClick && onClick()
       }}
-      style={{
-        background: `url(${
-          project?.images
-            ? project.images.img1
-            : "src/assets/projects/skeleton/skeleton.png"
-        })`,
-        backgroundSize: "150%",
-        // backgroundPositionY: "0%",
-        backgroundRepeat: "no-repeat"
-      }}
       ref={projectRef}
     >
-      <div className='background'></div>
+      <div
+        className='background'
+        style={{
+          background: `url(${
+            project?.images
+              ? project.images.img1
+              : "src/assets/projects/skeleton/skeleton.png"
+          })`,
+          backgroundSize: "150%",
+          // backgroundPositionY: "0%",
+          backgroundRepeat: "no-repeat"
+        }}
+      ></div>
       {isSelected && (
         <div className='project-controls'>
           <FullscreenOutlinedIcon
