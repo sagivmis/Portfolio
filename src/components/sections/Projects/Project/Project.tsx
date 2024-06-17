@@ -16,7 +16,8 @@ import useOnClickOutside from "../../../../hooks/useOnClickOutside"
 import FullscreenOutlinedIcon from "@mui/icons-material/FullscreenOutlined"
 import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined"
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined"
-
+import ImageGallery from "react-image-gallery"
+import "react-image-gallery/styles/css/image-gallery.css"
 interface IProject {
   project: ProjectType
   selected: boolean
@@ -81,11 +82,12 @@ const Project = (props: IProject) => {
               ? project.images.img1
               : "src/assets/projects/skeleton/skeleton.png"
           })`,
-          backgroundSize: "150%",
           // backgroundPositionY: "0%",
           backgroundRepeat: "no-repeat"
         }}
-      ></div>
+      >
+        <div className='background-overlay'></div>
+      </div>
       {isSelected && (
         <div className='project-controls'>
           <FullscreenOutlinedIcon
@@ -107,8 +109,16 @@ const Project = (props: IProject) => {
       >
         <h3 className='project-title'>{project.title}</h3>
         <p className='project-content'>{project.content}</p>
-        {isExpanded && "images"}
       </div>
+      {project.images && isExpanded && (
+        <ImageGallery
+          showFullscreenButton={false}
+          showPlayButton={false}
+          items={Object.values(project.images).map((image) => {
+            return { original: image }
+          })}
+        />
+      )}
     </div>
   )
 }
