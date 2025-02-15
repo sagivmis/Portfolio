@@ -1,56 +1,56 @@
-import { useEffect, useRef, useState } from "react"
-import Header from "../Header"
-import { Contact, About, Projects, Skills } from "../sections"
-import "./portfolio.css"
-import ReactFullpage, { Item } from "@fullpage/react-fullpage"
-import Welcome from "../sections/Welcome"
-import { FullPageEvents, SectionNames } from "../../types"
-import CareerExperience from "../sections/CareerExperience"
+import { useEffect, useRef, useState } from "react";
+import Header from "../Header";
+import { Contact, About, Projects, Skills } from "../sections";
+import "./portfolio.css";
+import ReactFullpage, { Item } from "@fullpage/react-fullpage";
+import Welcome from "../sections/Welcome";
+import { FullPageEvents, SectionNames } from "../../types";
+import CareerExperience from "../sections/CareerExperience";
 
 function Portfolio() {
   const [currentSection, setCurrentSection] = useState<SectionNames>(
     (window.location.hash.split("#")[1] as SectionNames) || ""
-  )
+  );
 
-  const [isFirstRender, setIsFirstRender] = useState(true)
+  const [isFirstRender, setIsFirstRender] = useState(true);
   const callbacks = useRef<Record<FullPageEvents, Record<string, () => void>>>({
     onLeave: {},
     afterReload: {},
-    beforeLeave: {}
-  })
+    beforeLeave: {},
+  });
   const sectionProps = {
     className: "section-container",
     currentSection,
-    callbacks
-  }
+    callbacks,
+  };
 
   useEffect(() => {
-    const vh = window.innerHeight
+    const vh = window.innerHeight;
     const setVH = () =>
-      document.documentElement.style.setProperty("--100vh", `${vh}px`)
-    setVH()
-    document.addEventListener("resize", setVH)
-    return () => document.removeEventListener("resize", setVH)
-  }, [])
+      document.documentElement.style.setProperty("--100vh", `${vh}px`);
+    setVH();
+    document.addEventListener("resize", setVH);
+    return () => document.removeEventListener("resize", setVH);
+  }, []);
 
   return (
-    <div className='portfolio-container'>
+    <div className="portfolio-container">
       <Header currentSection={currentSection} />
-      <div className='body-container'>
+      <div className="body-container">
         <ReactFullpage
           credits={{ enabled: false }}
           fitToSection={true}
           navigation
           onLeave={(origin: Item, dest: Item, direction: string, trigger) => {
-            setCurrentSection(dest.anchor as SectionNames)
+            setCurrentSection(dest.anchor as SectionNames);
             // onLeave()
             Object.values(callbacks.current["onLeave"]).forEach((callback) => {
-              callback()
-            })
+              callback();
+            });
           }}
           afterLoad={(origin: Item, dest: Item, direction: string, trigger) => {
-            setCurrentSection(dest.anchor as SectionNames)
-            console.log(dest.anchor)
+            setCurrentSection(dest.anchor as SectionNames);
+            console.log(dest.anchor);
           }}
           beforeLeave={(
             origin: Item,
@@ -58,35 +58,35 @@ function Portfolio() {
             direction: string,
             trigger
           ) => {
-            setCurrentSection(dest.anchor as SectionNames)
+            setCurrentSection(dest.anchor as SectionNames);
           }}
           licenseKey={"F00M9-H03MK-A9KJK-AJTJ7-JKJLM"}
           keyboardScrolling
           render={({ state, fullpageApi }) => {
             return (
               <ReactFullpage.Wrapper>
-                <div className='section' data-anchor='welcome'>
+                {/* <div className='section' data-anchor='welcome'>
                   <Welcome {...sectionProps} />
-                </div>
-                <div className='section' data-anchor='about'>
+                </div> */}
+                <div className="section" data-anchor="about">
                   <About {...sectionProps} />
                 </div>
-                <div className='section' data-anchor='experience'>
+                <div className="section" data-anchor="experience">
                   <CareerExperience {...sectionProps} />
                 </div>
-                <div className='section' data-anchor='projects'>
+                <div className="section" data-anchor="projects">
                   <Projects {...sectionProps} />
                 </div>
-                <div className='section' data-anchor='contact'>
+                <div className="section" data-anchor="contact">
                   <Contact {...sectionProps} />
                 </div>
               </ReactFullpage.Wrapper>
-            )
+            );
           }}
         />
       </div>
     </div>
-  )
+  );
 }
 
-export default Portfolio
+export default Portfolio;
