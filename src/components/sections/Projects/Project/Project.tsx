@@ -1,7 +1,6 @@
-import clsx from "clsx"
-import { Skeleton } from "../../../../assets"
-import { ProjectType } from "../../../../types"
-import "./project.css"
+import clsx from "clsx";
+import { ProjectType } from "../../../../types";
+import "./project.css";
 import {
   Dispatch,
   SetStateAction,
@@ -9,22 +8,19 @@ import {
   useCallback,
   useMemo,
   useRef,
-  useState
-} from "react"
-import MinimizeIcon from "@mui/icons-material/Minimize"
-import useOnClickOutside from "../../../../hooks/useOnClickOutside"
-import FullscreenOutlinedIcon from "@mui/icons-material/FullscreenOutlined"
-import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined"
-import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined"
-import ImageGallery from "react-image-gallery"
-import "react-image-gallery/styles/css/image-gallery.css"
+  useState,
+} from "react";
+import useOnClickOutside from "../../../../hooks/useOnClickOutside";
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
 interface IProject {
-  project: ProjectType
-  selected: boolean
-  index: number
-  changeSelection: Dispatch<SetStateAction<number>>
-  onClick?: () => void
-  removeSelection: () => void
+  project: ProjectType;
+  selected: boolean;
+  index: number;
+  changeSelection: Dispatch<SetStateAction<number>>;
+  onClick?: () => void;
+  removeSelection: () => void;
 }
 
 const Project = (props: IProject) => {
@@ -34,93 +30,89 @@ const Project = (props: IProject) => {
     index,
     removeSelection,
     onClick,
-    changeSelection
-  } = props
+    changeSelection,
+  } = props;
 
-  const [isExpanded, setIsExpanded] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  const projectRef = useRef<HTMLDivElement>(null)
-  const isSelected = useMemo(() => selected, [selected])
+  const projectRef = useRef<HTMLDivElement>(null);
+  const isSelected = useMemo(() => selected, [selected]);
 
   const handleClickOutside = useCallback(() => {
     if (isSelected) {
-      removeSelection()
+      removeSelection();
     }
     if (isExpanded) {
-      setIsExpanded(false)
+      setIsExpanded(false);
     }
-  }, [isSelected, isExpanded, removeSelection])
+  }, [isSelected, isExpanded, removeSelection]);
 
   const handleExpandProject = useCallback(() => {
-    setIsExpanded(true)
-  }, [])
+    setIsExpanded(true);
+  }, []);
 
   const handleMinimizeProject = useCallback(() => {
-    setIsExpanded(false)
-  }, [])
+    setIsExpanded(false);
+  }, []);
 
-  useOnClickOutside(projectRef, handleClickOutside)
+  useOnClickOutside(projectRef, handleClickOutside);
 
-  console.log(project.images ? project.images : "nill")
+  console.log(project.images ? project.images : "nill");
   return (
     <div
       className={clsx("project", {
         selected: isSelected,
-        expanded: isExpanded
+        expanded: isExpanded,
       })}
       onClick={() => {
-        changeSelection(index)
-        onClick && onClick()
+        changeSelection(index);
+        onClick && onClick();
+        handleExpandProject();
       }}
       ref={projectRef}
     >
       <div
-        className='background'
+        className="background"
         style={{
           background: `url(${
             project?.images
               ? project.images.img1
               : "src/assets/projects/skeleton/skeleton.png"
           })`,
-          // backgroundPositionY: "0%",
-          backgroundRepeat: "no-repeat"
+          backgroundRepeat: "no-repeat",
         }}
       >
-        <div className='background-overlay'></div>
+        <div className="background-overlay"></div>
       </div>
       {isSelected && (
-        <div className='project-controls'>
-          <FullscreenOutlinedIcon
-            className='project-control'
-            onClick={isExpanded ? handleMinimizeProject : handleExpandProject}
-          />
+        <div className="project-controls">
           <CloseOutlinedIcon
-            className='project-control'
+            className="project-control"
             onClick={() => {
-              handleClickOutside()
-              onClick && onClick()
+              handleClickOutside();
+              onClick && onClick();
             }}
           />
         </div>
       )}
       <div
-        className='project-info'
+        className="project-info"
         style={{ visibility: !isSelected ? "hidden" : "visible" }}
       >
-        <h3 className='project-title'>{project.title}</h3>
-        <p className='project-content'>{project.content}</p>
+        <h3 className="project-title">{project.title}</h3>
+        <p className="project-content">{project.content}</p>
       </div>
       {project.images && isExpanded && (
         <ImageGallery
           showFullscreenButton={false}
           showPlayButton={false}
           items={Object.values(project.images).map((image) => {
-            return { original: image }
+            return { original: image };
           })}
         />
       )}
     </div>
-  )
-}
+  );
+};
 
-export default memo(Project)
+export default memo(Project);

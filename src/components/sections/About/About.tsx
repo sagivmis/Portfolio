@@ -3,7 +3,6 @@ import "./about.css";
 import clsx from "clsx";
 import { Avatar } from "@mui/material";
 import { Profile } from "../../../assets";
-import { CSSProperties, useEffect, useMemo, useState } from "react";
 import SpeedIcon from "@mui/icons-material/SpeedOutlined";
 import DevicesIcon from "@mui/icons-material/DevicesOutlined";
 import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
@@ -15,31 +14,10 @@ interface IAbout extends ISection {}
 
 const About = (props: IAbout) => {
   const { className, currentSection } = props;
-  const [style, setStyle] = useState<CSSProperties>();
-  const [showSkillset, setShowSkillset] = useState(true);
-
-  const isCurrentSection = useMemo(
-    () => currentSection === "about",
-    [currentSection]
-  );
-
-  useEffect(() => {
-    // if (!isCurrentSection)
-    //   setTimeout(() => {
-    //     !isCurrentSection && setStyle({ display: "none" });
-    //     setShowSkillset(false);
-    //   }, 700);
-    // //ms of delay should be equal to full page delay
-    // else
-    //   setTimeout(() => {
-    //     isCurrentSection && setStyle(undefined);
-    //     setShowSkillset(true);
-    //   }, 700 / 3);
-  }, [currentSection, isCurrentSection]);
 
   return (
     <section className={clsx("about-container", className)}>
-      <div className="about-content-container content-container" style={style}>
+      <div className="about-content-container content-container">
         <h2 className="sagiv-logo">
           <a href="#welcome">
             <span>Sagiv Mishaan</span>
@@ -135,15 +113,14 @@ const About = (props: IAbout) => {
               <div className="skillset">
                 <div className="bubble"></div>
                 <div className="skills">
-                  {showSkillset &&
-                    skillset.map((skill, index) => (
-                      <ProgressBar
-                        label={skill.label}
-                        value={skill.value}
-                        max={100}
-                        animationDelay={index * 20}
-                      />
-                    ))}
+                  {skillset.map((skill, index) => (
+                    <ProgressBar
+                      label={skill.label}
+                      value={skill.value}
+                      max={100}
+                      animationDelay={index * 20}
+                    />
+                  ))}
                 </div>
               </div>
             </div>

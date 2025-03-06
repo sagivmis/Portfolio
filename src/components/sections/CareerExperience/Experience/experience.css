@@ -15,7 +15,6 @@
   visibility: hidden;
   animation: 800ms slideInBottom 400ms forwards,
     10400ms bouncy 1800ms forwards infinite;
-  /* animation: 800ms slideInBottom 400ms forwards; */
 }
 @keyframes bouncy {
   from,
@@ -45,7 +44,6 @@
 
   animation: 1s fadeToTop, 0.75s scaleExperience 1s forwards,
     1s slideInTop 0.75s;
-  /* animation-delay: 0ms; */
 }
 
 .experience-container.selected .experience-title-container,
@@ -85,10 +83,12 @@
 }
 .experience-content {
   text-align: left;
-  margin-inline-start: 1em;
-  margin-block-start: 1em;
-  block-size: 85%;
+  margin: 0;
   text-overflow: ellipsis;
+}
+
+div.experience-accordion-content {
+  padding: 0.5em 1em 1em 1em;
 }
 
 .experience-location {
@@ -101,11 +101,9 @@
   align-self: flex-end;
   font-style: italic;
   text-wrap: nowrap;
-  /* text-align: start; */
 }
 
 .experience-description {
-  /* margin-inline-start: -1em; */
   text-align: left;
 }
 
@@ -114,7 +112,6 @@
   flex-direction: row;
   gap: 0.5em;
   align-items: center;
-  /* justify-content: center; */
 }
 
 .experience-container span.experience-content {

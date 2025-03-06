@@ -1,32 +1,35 @@
-import { CSSProperties, useEffect, useState } from "react"
-import { SectionNames } from "../../types"
-import LinkBar from "./LinkBar"
-import "./header.css"
+import { CSSProperties, useEffect, useState } from "react";
+import { SectionNames } from "../../types";
+import LinkBar from "./LinkBar";
+import "./header.css";
 
 interface IHeader {
-  currentSection: SectionNames
+  currentSection: SectionNames;
 }
 
 const Header = (props: IHeader) => {
-  const { currentSection } = props
-  const [style, setStyle] = useState<CSSProperties>()
+  const { currentSection } = props;
+  const [style, setStyle] = useState<CSSProperties>({
+    display: "block",
+    backgroundColor: "var(--background)",
+    borderColor: "transparent",
+  });
 
   useEffect(() => {
-    if (currentSection === "welcome") setStyle({ display: "none" })
-    else if (currentSection === "about") setStyle({ display: "block" })
+    if (currentSection === "about") setStyle({ display: "block" });
     else
       setStyle({
         display: "block",
         backgroundColor: "var(--background)",
-        borderColor: "transparent"
-      })
-  }, [currentSection])
+        borderColor: "transparent",
+      });
+  }, [currentSection]);
 
   return (
-    <div className='header-container' style={style}>
+    <div className="header-container" style={style}>
       <LinkBar currentSection={currentSection} />
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

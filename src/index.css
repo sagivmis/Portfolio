@@ -4,6 +4,12 @@
 body {
   margin: 0;
 }
+
+div.section {
+  block-size: var(--100vh);
+  inline-size: 100%;
+}
+
 a {
   --link-text: #393939;
   text-decoration: underline;
@@ -15,6 +21,7 @@ a:hover {
   color: var(--detail) !important;
   transition: 200ms color ease-in;
 }
+
 @keyframes flipInX {
   0% {
     -webkit-animation-timing-function: ease-in;

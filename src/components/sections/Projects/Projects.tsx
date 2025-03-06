@@ -1,54 +1,29 @@
-import clsx from "clsx"
-import "./projects.css"
-import { ISection } from "../../../types"
-import Project from "./Project/Project"
-import {
-  CSSProperties,
-  memo,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState
-} from "react"
-import { projects } from "../../../util/consts"
+import clsx from "clsx";
+import "./projects.css";
+import { ISection } from "../../../types";
+import Project from "./Project/Project";
+import { memo, useCallback, useState } from "react";
+import { projects } from "../../../util/consts";
 
 interface IProjects extends ISection {}
 
 const Projects = (props: IProjects) => {
-  const { currentSection, className } = props
-  const [selectedProjectIndex, setSelectedProjectIndex] = useState(-1)
-  const [style, setStyle] = useState<CSSProperties>()
-
-  const isCurrentSection = useMemo(
-    () => currentSection === "projects",
-    [currentSection]
-  )
+  const { className } = props;
+  const [selectedProjectIndex, setSelectedProjectIndex] = useState(-1);
 
   const handleChangeSelection = (index: number) => {
-    if (index !== selectedProjectIndex) setSelectedProjectIndex(index)
-  }
+    if (index !== selectedProjectIndex) setSelectedProjectIndex(index);
+  };
 
   const handleResetSelectedProject = useCallback(() => {
-    console.log("in ")
-    setSelectedProjectIndex(-1)
-  }, [])
-
-  useEffect(() => {
-    if (!isCurrentSection)
-      setTimeout(() => !isCurrentSection && setStyle({ display: "none" }), 700)
-    // ms of delay should be equal to full page delay
-    else setTimeout(() => isCurrentSection && setStyle(undefined), 700 / 3)
-  }, [currentSection, isCurrentSection])
-
-  useEffect(() => {
-    console.log(selectedProjectIndex)
-  }, [selectedProjectIndex])
+    setSelectedProjectIndex(-1);
+  }, []);
 
   return (
-    <section className={clsx("projects-container", className)} style={style}>
-      <div id='background'></div>
+    <section className={clsx("projects-container", className)} id="projects">
+      <div id="background"></div>
 
-      <div className='projects-content-container content-container'>
+      <div className="projects-content-container content-container">
         {projects.map(
           (project, index) =>
             index % 3 === 0 && (
@@ -84,12 +59,11 @@ const Projects = (props: IProjects) => {
                   />
                 )}
               </>
-              // </div>
             )
         )}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default memo(Projects)
+export default memo(Projects);

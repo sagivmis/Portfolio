@@ -1,67 +1,60 @@
-import clsx from "clsx"
-import { WorkExperience } from "../../../../types"
-import "./experience.css"
-import { Chip, Tooltip } from "@mui/material"
-import { workLocationsMapping } from "../../../../util"
-import { useMemo, useRef } from "react"
-import useOnClickOutside from "../../../../hooks/useOnClickOutside"
+import clsx from "clsx";
+import { WorkExperience } from "../../../../types";
+import "./experience.css";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Typography,
+} from "@mui/material";
+import { useRef } from "react";
+import useOnClickOutside from "../../../../hooks/useOnClickOutside";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 interface IExperience {
-  experience: WorkExperience
-  index: number
-  selected: boolean
-  isPrevSelected: boolean
-  isLast?: boolean
-  onClick?: () => void
-  removeSelection: () => void
+  experience: WorkExperience;
+  index: number;
+  selected: boolean;
+  isPrevSelected: boolean;
+  isLast?: boolean;
+  onClick?: () => void;
+  removeSelection: () => void;
 }
 
 const Experience = (props: IExperience) => {
   const {
-    index,
-    selected,
-    isLast,
-    onClick,
     removeSelection,
-    isPrevSelected,
-    experience: { content, start, title, end, location }
-  } = props
+    experience: { content, start, title, end, location },
+  } = props;
 
-  const experienceRef = useRef<HTMLDivElement>()
+  const experienceRef = useRef<HTMLDivElement>();
 
-  useOnClickOutside(experienceRef, removeSelection)
+  useOnClickOutside(experienceRef, removeSelection);
   return (
-    <div
-      className={clsx("experience-container", { last: isLast, selected })}
-      style={
-        selected || isPrevSelected
-          ? undefined
-          : {
-              // animationDelay: `${600 + index * 200}ms`
-              animationDelay: `${600 + index * 200}ms, ${1800 + index * 50}ms`
-            }
-      }
-      onClick={onClick}
-      ref={experienceRef}
-    >
-      <span className='experience-title-container heading'>
-        <h4 className='experience-title'>
-          <span className='experience-description'>{title}</span>
-          {/* {location && <span className='experience-location'>{location}</span>} */}
-          {location && (
-            <Tooltip title={workLocationsMapping[location]} placement='top'>
-              <Chip label={location} />
-            </Tooltip>
-          )}
-        </h4>
-        <span className='experience-duration'>
-          {start} – {end || "PRESENT"}
-        </span>
-      </span>
-      <span className='experience-content'>{content}</span>
-      <span className='fader'></span>
-    </div>
-  )
-}
+    <Accordion classes={{ root: "experience-accordion-container" }}>
+      <AccordionSummary
+        className="experience-accordion-title"
+        expandIcon={<ExpandMoreIcon />}
+        aria-controls="panel1-content"
+        id="panel1-header"
+      >
+        <Typography component="span">
+          <h4 className="experience-title">
+            <span className="experience-description">{title}</span>
+            {location && (
+              <span className="experience-location">{location}</span>
+            )}
+            <span className="experience-duration">
+              {start} – {end || "PRESENT"}
+            </span>
+          </h4>
+        </Typography>
+      </AccordionSummary>
+      <AccordionDetails className="experience-accordion-content">
+        <p className="experience-content">{content}</p>
+      </AccordionDetails>
+    </Accordion>
+  );
+};
 
-export default Experience
+export default Experience;

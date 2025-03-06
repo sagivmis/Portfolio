@@ -12,13 +12,12 @@ div.career-experience-content-container {
 }
 
 .career-experience-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  display: flex;
+  flex-direction: column;
   inline-size: 100%;
 
   gap: 1em;
 
-  /* block-size: 85%; */
   align-items: flex-start;
   justify-items: center;
 }

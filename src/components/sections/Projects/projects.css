@@ -1,4 +1,6 @@
 section.projects-container {
+  position: relative;
+  display: flex;
   flex-direction: row;
   inline-size: calc(100% - 2em);
   gap: 1em;

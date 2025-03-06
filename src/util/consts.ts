@@ -1,21 +1,21 @@
-import { AIChatProject, AlgoTradeProject } from "../assets"
-import { Skill, WorkPlaces, WorkExperience, ProjectType } from "../types"
+import { AIChatProject, AlgoTradeProject } from "../assets";
+import { Skill, WorkPlaces, WorkExperience, ProjectType } from "../types";
 
 export const skillset: Skill[] = [
-  { label: "CSS", value: 90 },
-  { label: "HTML", value: 90 },
-  { label: "JavaScript", value: 90 },
-  { label: "TypeScript", value: 90 },
-  { label: "React", value: 90 },
-  { label: "Node.js", value: 90 },
-  { label: "React-Native", value: 80 },
-  { label: "MongoDB", value: 80 },
-  { label: "SQL", value: 80 },
-  { label: "ElasticSearch", value: 60 },
-  { label: "Unity", value: 60 },
-  { label: "Python", value: 50 },
-  { label: "C#", value: 40 }
-]
+  { label: "CSS", value: 95 },
+  { label: "HTML", value: 95 },
+  { label: "JavaScript", value: 95 },
+  { label: "TypeScript", value: 95 },
+  { label: "React", value: 95 },
+  { label: "Node.js", value: 95 },
+  { label: "MongoDB", value: 95 },
+  { label: "SQL", value: 95 },
+  { label: "React-Native", value: 90 },
+  { label: "ElasticSearch", value: 75 },
+  { label: "Unity", value: 75 },
+  { label: "Python", value: 70 },
+  { label: "C#", value: 65 },
+];
 
 export const experiences: WorkExperience[] = [
   {
@@ -36,7 +36,7 @@ export const experiences: WorkExperience[] = [
     the logging framework, including organizing and indexing logs,
     greatly improved operational efficiency and business insights. I
     also took pride in mentoring new team members, ensuring a smooth
-    onboarding process and knowledge transfer.`
+    onboarding process and knowledge transfer.`,
   },
   {
     title: "FULL STACK & GAME DEVELOPER",
@@ -49,7 +49,7 @@ export const experiences: WorkExperience[] = [
     players to seamlessly continue their adventures. This role has
     honed my skills in game design, AI programming, and user
     experience, driving me to continuously push the boundaries of
-    creativity and technical expertise.`
+    creativity and technical expertise.`,
   },
   {
     title: "TUTOR",
@@ -62,28 +62,28 @@ export const experiences: WorkExperience[] = [
     guiding a middle schooler through their first coding class or
     helping a university student tackle advanced algorithms, my
     approach is always supportive, encouraging, and aimed at fostering
-    a deep understanding and love for learning.`
-  }
-]
+    a deep understanding and love for learning.`,
+  },
+];
 
 export const workLocationsMapping: Record<WorkPlaces, string> = {
   "8200": "8200 IDF Unit",
-  "Ind.": "Independent"
-}
+  "Ind.": "Independent",
+};
 export const projects: ProjectType[] = [
   {
     title: "Cryptocurrency Algo-Trade Bot",
     content:
       "Developed using Python with pandas and numpy for the backend and\n React with Electron for the front-end.",
-    images: AlgoTradeProject
+    images: AlgoTradeProject,
   },
   {
     title: "AI Chatbot",
     content: "with dashboard for user preferences and file management.",
-    images: AIChatProject
+    images: AIChatProject,
   },
   {
     title: "Independent Game Development",
-    content: "Created 2D and 3D arcade games with AI systems for NPCs."
-  }
-]
+    content: "Created 2D and 3D arcade games with AI systems for NPCs.",
+  },
+];
