@@ -35,7 +35,7 @@ html {
   inline-size: 100vw;
   block-size: 100vh;
 
-  --header-footer-block-size: 4%;
+  --header-footer-block-size: 2%;
 }
 
 h1,

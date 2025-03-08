@@ -17,6 +17,10 @@
   animation: 0.4s addBottomBorder 0.4s forwards ease-out;
 }
 
+li.link a {
+  color: var(--background);
+}
+
 @keyframes addBottomBorder {
   to {
     border-bottom: 0.15em solid var(--detail);
