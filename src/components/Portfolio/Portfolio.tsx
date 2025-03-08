@@ -23,12 +23,14 @@ function Portfolio() {
   };
 
   useEffect(() => {
-    const vh = window.innerHeight;
     const setVH = () =>
-      document.documentElement.style.setProperty("--100vh", `${vh}px`);
+      document.documentElement.style.setProperty(
+        "--100vh",
+        `${window.innerHeight}px`
+      );
     setVH();
-    document.addEventListener("resize", setVH);
-    return () => document.removeEventListener("resize", setVH);
+    window.addEventListener("resize", setVH);
+    return () => window.removeEventListener("resize", setVH);
   }, []);
 
   return (
