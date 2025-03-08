@@ -1,6 +1,5 @@
 section.career-experience-section-container {
-  justify-content: flex-end;
-  block-size: calc(var(--100vh) - 7em);
+  margin-block-end: 3em;
 }
 
 div.career-experience-content-container {
