@@ -31,19 +31,23 @@ const Experience = (props: IExperience) => {
 
   const experienceRef = useRef<HTMLDivElement>();
 
-  useOnClickOutside(experienceRef, removeSelection);
-
   return (
     <Accordion
       classes={{ root: "experience-accordion-container" }}
       expanded={selected}
+      onChange={(event, expand) => {
+        if (expand) {
+          onClick();
+        } else {
+          removeSelection();
+        }
+      }}
     >
       <AccordionSummary
         className="experience-accordion-title"
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1-content"
         id="panel1-header"
-        onClick={() => onClick()}
       >
         <Typography component="span">
           <h4 className="experience-title">
@@ -58,11 +62,11 @@ const Experience = (props: IExperience) => {
         </Typography>
       </AccordionSummary>
       <AccordionDetails className="experience-accordion-content">
-        {content.map((con) => (
-          <p className="experience-content" ref={experienceRef}>
-            {con}
-          </p>
-        ))}
+        <div ref={experienceRef}>
+          {content.map((con) => (
+            <p className="experience-content">{con}</p>
+          ))}
+        </div>
       </AccordionDetails>
     </Accordion>
   );

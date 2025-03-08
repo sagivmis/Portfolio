@@ -56,22 +56,12 @@ export const experiences: WorkExperience[] = [
     ],
   },
   {
-    title: "FULL STACK & GAME DEVELOPER",
-    // location: "8200 Unit",
+    title: "FULL STACK",
     start: "2020",
     content: [
-      `As an Independent Game Developer and Full-Stack Engineer, I have crafted a portfolio of
-    engaging 2D and 3D arcade games, aswell as website applications with various complexity levels. 
-    My creations feature sophisticated AI systems for enemy and non-playable characters (NPCs), enriching the gaming
-    experience. I also implemented robust saving systems, allowing
-    players to seamlessly continue their adventures. This role has
-    honed my skills in game design, AI programming, and user
-    experience, driving me to continuously push the boundaries of
-    creativity and technical expertise.`,
+      "As an Independent Full-Stack Engineer, I have crafted website applications with various levels of complexity. I focused on building robust architectures and delivering seamless user experiences, which continuously push the boundaries of modern web development.",
     ],
     skills: [
-      "c#",
-      "unity",
       "architecture",
       "frontend",
       "backend",
@@ -82,6 +72,41 @@ export const experiences: WorkExperience[] = [
       "dataStructures",
     ],
   },
+  {
+    title: "GAME DEVELOPER",
+    start: "2020",
+    content: [
+      "As an Independent Game Developer, I have developed a portfolio of engaging 2D and 3D arcade games. My projects feature sophisticated AI systems for enemy and non-playable characters, along with robust saving systems that let players seamlessly continue their adventures. This role has refined my skills in game design, AI programming, and creating dynamic gameplay experiences.",
+    ],
+    skills: ["c#", "unity"],
+  },
+  // {
+  //   title: "FULL STACK & GAME DEVELOPER",
+  //   // location: "8200 Unit",
+  //   start: "2020",
+  //   content: [
+  //     `As an Independent Game Developer and Full-Stack Engineer, I have crafted a portfolio of
+  //   engaging 2D and 3D arcade games, aswell as website applications with various complexity levels.
+  //   My creations feature sophisticated AI systems for enemy and non-playable characters (NPCs), enriching the gaming
+  //   experience. I also implemented robust saving systems, allowing
+  //   players to seamlessly continue their adventures. This role has
+  //   honed my skills in game design, AI programming, and user
+  //   experience, driving me to continuously push the boundaries of
+  //   creativity and technical expertise.`,
+  //   ],
+  //   skills: [
+  //     "c#",
+  //     "unity",
+  //     "architecture",
+  //     "frontend",
+  //     "backend",
+  //     "javaScript",
+  //     "typeScript",
+  //     "MongoDB",
+  //     "node.js",
+  //     "dataStructures",
+  //   ],
+  // },
   {
     title: "TUTOR",
     // location: "8200 Unit",

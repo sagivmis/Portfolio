@@ -14,7 +14,7 @@ const CareerExperience = (props: ICareerExperience) => {
     useState(-1);
 
   const handleChangeSelectedExperience = (index: number) => {
-    setSelectedExperienceIndex(index);
+    setSelectedExperienceIndex(selectedExperienceIndex === index ? -1 : index);
   };
 
   const handleResetSelectedExperience = () => {
