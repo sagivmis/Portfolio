@@ -5,9 +5,7 @@
 html {
   background-color: var(--background);
   --100vh: 100vh;
-}
 
-#root {
   --primary: #18416b;
   --headline-dark: #18416b;
   --soft: #7caee1;
@@ -19,7 +17,10 @@ html {
   --dk-background: #333;
   --divider: #d1d5db;
   --detail: #e31b6d;
+  /* --detail: #3985d2; */
+}
 
+#root {
   font-family: Raleway, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -31,7 +32,6 @@ html {
   --padding: 1em;
   --padding-inline: 1em;
   --padding-block: 0.5em;
-  /* padding: var(--padding); */
   inline-size: 100vw;
   block-size: 100vh;
 
@@ -57,22 +57,19 @@ h6 {
   block-size: 100%;
   inline-size: 100%;
 
-  /* align-items: center; */
+  overflow-x: hidden;
 }
 
 .body-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* padding: var(--padding); */
   inline-size: calc(100% - calc(var(--padding) * 0));
   block-size: calc(
     100% - calc(var(--padding) * 2) - calc(var(--header-footer-block-size) * 2)
   );
 
-  /* block-size: calc(100% ); */
   background-color: var(--background);
-  /* overflow-y: auto; */
 }
 
 div.content-container {
@@ -102,6 +99,7 @@ div#fp-nav.fp-right {
 div#fp-nav.fp-right.hidden {
   animation: fadeOut 1s forwards;
 }
+
 /* width */
 ::-webkit-scrollbar {
   width: 0.65em;
@@ -109,15 +107,18 @@ div#fp-nav.fp-right.hidden {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  border-radius: 8px;
+  background-color: #e7e7e7;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--primary);
+  background-color: var(--detail);
+  border-radius: 8px;
+  padding: 0.05em;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--soft);
+  background-color: var(--light-red);
 }
