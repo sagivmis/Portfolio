@@ -36,6 +36,5 @@ div.career-experience-content-container {
 
 @media only screen and (min-width: 768px) {
   section.career-experience-section-container {
-    justify-content: center;
   }
 }
