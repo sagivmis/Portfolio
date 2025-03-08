@@ -23,6 +23,8 @@ interface IExperience {
 
 const Experience = (props: IExperience) => {
   const {
+    selected,
+    onClick,
     removeSelection,
     experience: { content, start, title, end, location },
   } = props;
@@ -30,13 +32,18 @@ const Experience = (props: IExperience) => {
   const experienceRef = useRef<HTMLDivElement>();
 
   useOnClickOutside(experienceRef, removeSelection);
+
   return (
-    <Accordion classes={{ root: "experience-accordion-container" }}>
+    <Accordion
+      classes={{ root: "experience-accordion-container" }}
+      expanded={selected}
+    >
       <AccordionSummary
         className="experience-accordion-title"
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1-content"
         id="panel1-header"
+        onClick={() => onClick()}
       >
         <Typography component="span">
           <h4 className="experience-title">
@@ -52,7 +59,9 @@ const Experience = (props: IExperience) => {
       </AccordionSummary>
       <AccordionDetails className="experience-accordion-content">
         {content.map((con) => (
-          <p className="experience-content">{con}</p>
+          <p className="experience-content" ref={experienceRef}>
+            {con}
+          </p>
         ))}
       </AccordionDetails>
     </Accordion>
