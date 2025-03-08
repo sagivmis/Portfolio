@@ -11,19 +11,9 @@ const Header = (props: IHeader) => {
   const { currentSection } = props;
   const [style, setStyle] = useState<CSSProperties>({
     display: "block",
-    backgroundColor: "var(--background)",
+    backgroundColor: "var(--dk-background)",
     borderColor: "transparent",
   });
-
-  useEffect(() => {
-    if (currentSection === "about") setStyle({ display: "block" });
-    else
-      setStyle({
-        display: "block",
-        backgroundColor: "var(--background)",
-        borderColor: "transparent",
-      });
-  }, [currentSection]);
 
   return (
     <div className="header-container" style={style}>
