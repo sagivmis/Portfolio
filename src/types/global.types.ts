@@ -24,12 +24,33 @@ export type Skill = {
   value: number;
   label: string;
 };
+
+export type WorkSkill =
+  | "node.js"
+  | "react"
+  | "MSSQL"
+  | "MongoDB"
+  | "SQL"
+  | "frontend"
+  | "backend"
+  | "python"
+  | "unity"
+  | "c#"
+  | "reactNative"
+  | "javaScript"
+  | "typeScript"
+  | "elasticSearch"
+  | "architecture"
+  | "leetCode"
+  | "dataStructures";
+
 export type WorkExperience = {
   title: string;
   start: string;
   end?: string;
   location?: WorkPlaces;
-  content: string;
+  content: string[];
+  skills: WorkSkill[];
 };
 export type WorkPlaces = "8200" | "Ind.";
 

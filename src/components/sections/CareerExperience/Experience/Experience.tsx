@@ -51,7 +51,9 @@ const Experience = (props: IExperience) => {
         </Typography>
       </AccordionSummary>
       <AccordionDetails className="experience-accordion-content">
-        <p className="experience-content">{content}</p>
+        {content.map((con) => (
+          <p className="experience-content">{con}</p>
+        ))}
       </AccordionDetails>
     </Accordion>
   );
