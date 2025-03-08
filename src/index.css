@@ -6,7 +6,7 @@ body {
 }
 
 div.section {
-  block-size: var(--100vh);
+  /* block-size: var(--100vh); */
   inline-size: 100%;
 }
 

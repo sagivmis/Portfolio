@@ -65,23 +65,23 @@ h6 {
   flex-direction: column;
   align-items: center;
   inline-size: calc(100% - calc(var(--padding) * 0));
-  block-size: calc(
-    100% - calc(var(--padding) * 2) - calc(var(--header-footer-block-size) * 2)
-  );
 
   background-color: var(--background);
+
+  margin-block-start: 4%;
 }
 
 div.content-container {
   display: flex;
   inline-size: 100%;
-  block-size: 95%;
 }
+
 section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  block-size: calc(var(--100vh) - 2em);
+  block-size: calc(100% - 2em);
+  min-block-size: var(--100vh);
   inline-size: calc(100% - 2em);
   padding: 1em;
 }

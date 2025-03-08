@@ -38,16 +38,6 @@ const Project = (props: IProject) => {
   const projectRef = useRef<HTMLDivElement>(null);
   const isSelected = useMemo(() => selected, [selected]);
 
-  const handleClickOutside = useCallback(() => {
-    if (isSelected) {
-      removeSelection();
-      handleMinimizeProject();
-    }
-    if (isExpanded) {
-      setIsExpanded(false);
-    }
-  }, [isSelected, isExpanded, removeSelection]);
-
   const handleExpandProject = useCallback(() => {
     setIsExpanded(true);
   }, []);
@@ -56,9 +46,14 @@ const Project = (props: IProject) => {
     setIsExpanded(false);
   }, []);
 
+  const handleClickOutside = useCallback(() => {
+    removeSelection();
+    setIsExpanded(false);
+    handleMinimizeProject();
+  }, [setIsExpanded, removeSelection, handleMinimizeProject]);
+
   useOnClickOutside(projectRef, handleClickOutside);
 
-  console.log(project.images ? project.images : "nill");
   return (
     <div
       className={clsx("project", {
@@ -91,7 +86,7 @@ const Project = (props: IProject) => {
             className="project-control"
             onClick={() => {
               handleClickOutside();
-              onClick && onClick();
+              // onClick && onClick();
             }}
           />
         </div>
