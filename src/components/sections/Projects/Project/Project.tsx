@@ -41,6 +41,7 @@ const Project = (props: IProject) => {
   const handleClickOutside = useCallback(() => {
     if (isSelected) {
       removeSelection();
+      handleMinimizeProject();
     }
     if (isExpanded) {
       setIsExpanded(false);

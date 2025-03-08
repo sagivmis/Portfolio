@@ -2,8 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import Header from "../Header";
 import { Contact, About, Projects, Skills } from "../sections";
 import "./portfolio.css";
-import ReactFullpage, { Item } from "@fullpage/react-fullpage";
-import Welcome from "../sections/Welcome";
 import { FullPageEvents, SectionNames } from "../../types";
 import CareerExperience from "../sections/CareerExperience";
 
