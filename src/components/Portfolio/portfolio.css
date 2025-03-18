@@ -81,7 +81,7 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-block-size: var(--100vh);
+  min-block-size: calc(var(--100vh) - 2em);
   block-size: 100%;
   inline-size: calc(100% - 2em);
   padding: 1em;
