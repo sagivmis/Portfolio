@@ -33,14 +33,6 @@ div.career-experience-content-container::before {
   z-index: -1;
 }
 
-div.experience-accordion-container.Mui-expanded {
-  position: absolute;
-  block-size: 100%;
-  top: 0;
-  z-index: 100;
-  margin: 0;
-}
-
 .career-experience-container {
   /* display: flex;
   flex-direction: row; */

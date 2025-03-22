@@ -1,5 +1,7 @@
 div.experience-accordion-container {
   flex: 1;
+  position: relative;
+  min-inline-size: 100%;
 }
 
 .experience-container {
@@ -108,7 +110,10 @@ div.experience-accordion-content {
   /* flex: 1; */
 }
 .experience-duration {
-  font-size: 12px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 8px;
   align-self: flex-end;
   font-style: italic;
   text-wrap: nowrap;
@@ -118,6 +123,7 @@ div.experience-accordion-content {
 .experience-description {
   text-align: left;
   flex: 3;
+  font-size: 12px;
 }
 
 .experience-title {
@@ -127,6 +133,31 @@ div.experience-accordion-content {
   align-items: center;
 }
 
+div.experience-accordion-container.Mui-expanded {
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  margin: 0;
+}
+
+div.experience-accordion-title {
+  min-block-size: 5em;
+}
+
+@media only screen and (min-width: 920px) {
+  div.experience-accordion-container.Mui-expanded {
+    block-size: 100%;
+  }
+  .experience-description {
+    font-size: 16px;
+  }
+
+  .experience-duration {
+    font-size: 12px;
+
+    position: relative;
+  }
+}
 .experience-container span.experience-content {
   overflow: hidden;
   text-overflow: ellipsis;

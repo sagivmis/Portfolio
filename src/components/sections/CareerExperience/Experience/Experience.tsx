@@ -61,14 +61,16 @@ const Experience = (props: IExperience) => {
           </h4>
         </Typography>
       </AccordionSummary>
-      <AccordionDetails className="experience-accordion-content">
-        <div ref={experienceRef}>
-          <p className="experience-location">{location}</p>
-          {content.map((con) => (
-            <p className="experience-content">{con}</p>
-          ))}
-        </div>
-      </AccordionDetails>
+      {selected && (
+        <AccordionDetails className="experience-accordion-content">
+          <div ref={experienceRef}>
+            <p className="experience-location">{location}</p>
+            {content.map((con) => (
+              <p className="experience-content">{con}</p>
+            ))}
+          </div>
+        </AccordionDetails>
+      )}
     </Accordion>
   );
 };
