@@ -4,6 +4,8 @@ import { ISection } from "../../../types";
 import Mail from "@mui/icons-material/MailOutlineOutlined";
 import { Fiverr, GitHub, LinkedIn as LinkedInIcon } from "../../../assets";
 import Footer from "../../Footer";
+import emailjs from "@emailjs/browser";
+import ContactForm from "./ContactForm/ContactForm";
 
 interface IContact extends ISection {}
 
@@ -14,6 +16,7 @@ const Contact = (props: IContact) => {
       className={clsx("contact-footer-container", className)}
       id="contact"
     >
+      <ContactForm />
       <div className="contact-content-container content-container">
         <div className="contact-footer">
           <div className="contact-container">
