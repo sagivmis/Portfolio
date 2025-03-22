@@ -1,21 +1,55 @@
 section.career-experience-section-container {
-  margin-block-end: 3em;
+  min-block-size: calc(var(--100vh) - 15em);
+  justify-content: center;
 }
 
 div.career-experience-content-container {
-  inline-size: 100%;
-  block-size: 92.5%;
+  block-size: 40%;
+  inline-size: 80%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: 5%;
+  border-radius: 5px;
+  position: relative;
+}
+
+div.career-experience-content-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  background: var(--normal); /* <--- no dash here */
+  mask-image: radial-gradient(circle at center, black 70%, transparent 100%);
+  -webkit-mask-image: radial-gradient(
+    circle at center,
+    black 70%,
+    transparent 100%
+  );
+  z-index: -1;
+}
+
+div.experience-accordion-container.Mui-expanded {
+  position: absolute;
+  block-size: 100%;
+  top: 0;
+  z-index: 100;
+  margin: 0;
 }
 
 .career-experience-container {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: row; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(35%, 1fr));
+  grid-gap: 1em;
   inline-size: 100%;
 
-  gap: 1em;
+  /* gap: 1em; */
 
   align-items: flex-start;
   justify-items: center;

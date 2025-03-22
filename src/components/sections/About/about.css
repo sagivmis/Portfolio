@@ -1,3 +1,7 @@
+section.about-container {
+  block-size: calc(var(--100vh) - 10em);
+  min-block-size: calc(var(--100vh) - 10em);
+}
 .about-content-container {
   inline-size: 100%;
   block-size: 100%;
@@ -31,9 +35,6 @@ div.about-content {
   min-block-size: unset;
 }
 
-section.about-container {
-}
-
 .top-content-container,
 .bottom-content-container {
   display: flex;
@@ -60,7 +61,7 @@ section.about-container {
   inline-size: 90%;
   flex-direction: column;
   flex-wrap: nowrap;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
 
   gap: 1em;
@@ -175,7 +176,7 @@ div.profile-image-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   block-size: 100%;
   inline-size: unset;
 }

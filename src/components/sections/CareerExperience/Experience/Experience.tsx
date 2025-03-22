@@ -33,7 +33,7 @@ const Experience = (props: IExperience) => {
 
   return (
     <Accordion
-      classes={{ root: "experience-accordion-container" }}
+      classes={{ root: clsx("experience-accordion-container") }}
       expanded={selected}
       onChange={(event, expand) => {
         if (expand) {
@@ -52,9 +52,9 @@ const Experience = (props: IExperience) => {
         <Typography component="span">
           <h4 className="experience-title">
             <span className="experience-description">{title}</span>
-            {location && (
+            {/* {location && (
               <span className="experience-location">{location}</span>
-            )}
+            )} */}
             <span className="experience-duration">
               {start} – {end || "PRESENT"}
             </span>
@@ -63,6 +63,7 @@ const Experience = (props: IExperience) => {
       </AccordionSummary>
       <AccordionDetails className="experience-accordion-content">
         <div ref={experienceRef}>
+          <p className="experience-location">{location}</p>
           {content.map((con) => (
             <p className="experience-content">{con}</p>
           ))}

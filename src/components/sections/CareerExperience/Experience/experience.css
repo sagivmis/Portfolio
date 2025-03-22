@@ -1,4 +1,9 @@
+div.experience-accordion-container {
+  flex: 1;
+}
+
 .experience-container {
+  /* flex: 1; */
   position: relative;
   display: flex;
   flex-direction: column;
@@ -93,18 +98,26 @@ div.experience-accordion-content {
 
 .experience-location {
   font-size: 14px;
+  inline-size: 100%;
+  text-align: right;
   letter-spacing: 0.075em;
   font-style: italic;
+  /* text-decoration: ; */
+  margin: 0;
+  margin-block-end: 0.2em;
+  /* flex: 1; */
 }
 .experience-duration {
   font-size: 12px;
   align-self: flex-end;
   font-style: italic;
   text-wrap: nowrap;
+  flex: 1;
 }
 
 .experience-description {
   text-align: left;
+  flex: 3;
 }
 
 .experience-title {
