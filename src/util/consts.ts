@@ -59,7 +59,8 @@ export const experiences: WorkExperience[] = [
     title: "FULL STACK",
     start: "2020",
     content: [
-      "As an Independent Full-Stack Engineer, I have crafted website applications with various levels of complexity. I focused on building robust architectures and delivering seamless user experiences, which continuously push the boundaries of modern web development.",
+      "As an Independent Full-Stack Engineer, I have crafted website applications with various levels of complexity.",
+      "I focused on building robust architectures and delivering seamless user experiences, which continuously push the boundaries of modern web development.",
     ],
     skills: [
       "architecture",
@@ -76,7 +77,9 @@ export const experiences: WorkExperience[] = [
     title: "GAME DEVELOPER",
     start: "2020",
     content: [
-      "As an Independent Game Developer, I have developed a portfolio of engaging 2D and 3D arcade games. My projects feature sophisticated AI systems for enemy and non-playable characters, along with robust saving systems that let players seamlessly continue their adventures. This role has refined my skills in game design, AI programming, and creating dynamic gameplay experiences.",
+      "As an Independent Game Developer, I have developed a portfolio of engaging 2D and 3D arcade games.",
+      "My projects feature sophisticated AI systems for enemy and non-playable characters, along with robust saving systems that let players seamlessly continue their adventures.",
+      "This role has refined my skills in game design, AI programming, and creating dynamic gameplay experiences.",
     ],
     skills: ["c#", "unity"],
   },
@@ -113,9 +116,11 @@ export const experiences: WorkExperience[] = [
     start: "2021",
     content: [
       `I have empowered students across various levels, from middle
-    school to university, to achieve academic success. I specialize in
+    school to university, to achieve academic success.`,
+      `I specialize in
     tailoring my teaching methods to meet individual needs, ensuring
-    that complex concepts are made accessible and engaging. Whether
+    that complex concepts are made accessible and engaging.`,
+      `Whether
     guiding a middle schooler through their first coding class or
     helping a university student tackle advanced algorithms, my
     approach is always supportive, encouraging, and aimed at fostering
