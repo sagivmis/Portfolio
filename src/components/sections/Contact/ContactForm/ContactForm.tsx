@@ -108,7 +108,11 @@ const ContactForm = () => {
           ></textarea>
         </div>
       </div>
-      <Button type="submit" variant="contained">
+      <Button
+        type="submit"
+        variant="contained"
+        classes={{ root: "contact-submit-btn" }}
+      >
         Submit
       </Button>
       <p className="status-message">{statusMessage}</p>

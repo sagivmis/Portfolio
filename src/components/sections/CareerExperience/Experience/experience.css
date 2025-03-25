@@ -94,8 +94,13 @@ div.experience-accordion-container {
   text-overflow: ellipsis;
 }
 
-div.experience-accordion-content {
+div.experience-accordion-content-container {
   padding: 0.5em 1em 1em 1em;
+}
+
+div.experience-accordion-content {
+  max-block-size: calc(var(--100vh) * 0.33);
+  overflow-y: auto;
 }
 
 .experience-location {

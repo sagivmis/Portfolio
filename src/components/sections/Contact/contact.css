@@ -1,8 +1,10 @@
 .body-container section.contact-footer-container {
   gap: 1em;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
+
+  padding-block-start: 5em;
 }
 
 div.contact-content-container {

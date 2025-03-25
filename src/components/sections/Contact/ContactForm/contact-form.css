@@ -66,6 +66,10 @@
   margin-top: 1em;
 }
 
+button.contact-submit-btn {
+  background-color: var(--detail);
+}
+
 @media only screen and (min-width: 920px) {
   .contact-form-container {
     inline-size: 40%;
