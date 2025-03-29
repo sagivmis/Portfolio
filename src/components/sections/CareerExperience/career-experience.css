@@ -60,7 +60,13 @@ div.career-experience-content-container::before {
   text-align: left;
 }
 
-@media only screen and (min-width: 768px) {
-  section.career-experience-section-container {
+@media only screen and (min-width: 968px) {
+  div.career-experience-content-container {
+    inline-size: 65%;
+  }
+}
+@media only screen and (min-width: 1168px) {
+  div.career-experience-content-container {
+    inline-size: 60%;
   }
 }
