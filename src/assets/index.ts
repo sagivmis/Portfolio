@@ -5,6 +5,8 @@ import Profile from "./profile.jpeg"
 
 import AlgoTradeProject from "./projects/algo-trade-bot"
 import AIChatProject from "./projects/ai-chat"
+import SnapicProject from "./projects/snapic"
+import GamesProject from "./projects/games"
 import Skeleton from "./projects/skeleton/skeleton.png"
 
 export {
@@ -14,5 +16,8 @@ export {
   Profile,
   AlgoTradeProject,
   AIChatProject,
-  Skeleton
+  SnapicProject,
+  GamesProject,
+  Skeleton,
 }
+

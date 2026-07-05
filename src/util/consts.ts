@@ -1,4 +1,9 @@
-import { AIChatProject, AlgoTradeProject } from "../assets";
+import {
+  AIChatProject,
+  AlgoTradeProject,
+  GamesProject,
+  SnapicProject,
+} from "../assets";
 import { Skill, WorkPlaces, WorkExperience, ProjectType } from "../types";
 
 export const skillset: Skill[] = [
@@ -136,18 +141,88 @@ export const workLocationsMapping: Record<WorkPlaces, string> = {
 };
 export const projects: ProjectType[] = [
   {
-    title: "Cryptocurrency Algo-Trade Bot",
+    title: "Snapic",
+    subtitle: "Find yourself in every wedding photo",
     content:
-      "Developed using Python with pandas and numpy for the backend and\n React with Electron for the front-end.",
+      "Guests upload a selfie and instantly discover every wedding photo they appear in — powered by InsightFace face matching.",
+    description: [
+      "Snapic is a full-stack wedding photo platform. Guests open an event link, upload a selfie, and get a personalized grid of every shot they appear in — no scrolling through hundreds of photos.",
+      "Photographers run branded studios with upload pipelines, real-time indexing, and guest QR codes. Couples request private galleries with couple-mode matching for two portraits.",
+    ],
+    highlights: [
+      "InsightFace-powered face matching with streaming results",
+      "Guest PWA with selfie upload, zip download & share sheet",
+      "Snapic Studio for photographers — branding, events & billing",
+      "FastAPI backend on Render, React PWA on Vercel, Supabase auth",
+    ],
+    tags: ["React", "FastAPI", "InsightFace", "Supabase", "Stripe"],
+    links: [
+      { label: "Live app", url: "https://snapic.app/" },
+      { label: "GitHub", url: "https://github.com/sagivmis/snapic" },
+    ],
+    images: SnapicProject,
+    featured: true,
+    year: "2025",
+    category: "Wedding / AI",
+  },
+  {
+    title: "Cryptocurrency Algo-Trade Bot",
+    subtitle: "Automated trading with a desktop dashboard",
+    content:
+      "Python-powered trading engine with a React + Electron desktop front-end for strategy monitoring and execution.",
+    description: [
+      "A full-stack algorithmic trading system that analyzes cryptocurrency markets using pandas and numpy for signal generation and backtesting.",
+      "The Electron desktop client built with React provides real-time portfolio tracking, strategy configuration, and trade execution controls in a single unified interface.",
+    ],
+    highlights: [
+      "Python backend with pandas/numpy for market analysis",
+      "React + Electron desktop dashboard",
+      "Real-time strategy monitoring and execution",
+      "Backtesting pipeline for strategy validation",
+    ],
+    tags: ["Python", "pandas", "React", "Electron", "Trading"],
     images: AlgoTradeProject,
+    year: "2022",
+    category: "FinTech",
   },
   {
     title: "AI Chatbot",
-    content: "with dashboard for user preferences and file management.",
+    subtitle: "Conversational AI with admin dashboard",
+    content:
+      "AI-powered chatbot with a full dashboard for user preferences, conversation history, and file management.",
+    description: [
+      "An intelligent chatbot platform with a rich admin dashboard for managing user preferences, uploaded files, and conversation flows.",
+      "The dashboard provides analytics on usage patterns, file organization tools, and granular control over AI behavior and response parameters.",
+    ],
+    highlights: [
+      "Conversational AI with context-aware responses",
+      "Admin dashboard for preferences & file management",
+      "Upload and organize documents for AI context",
+      "Usage analytics and conversation history",
+    ],
+    tags: ["React", "Node.js", "AI", "Dashboard", "TypeScript"],
     images: AIChatProject,
+    year: "2023",
+    category: "AI / SaaS",
   },
   {
     title: "Independent Game Development",
-    content: "Created 2D and 3D arcade games with AI systems for NPCs.",
+    subtitle: "2D & 3D arcade games with AI-driven NPCs",
+    content:
+      "A portfolio of arcade games featuring sophisticated AI for enemies and NPCs, plus robust save systems.",
+    description: [
+      "Independent game development spanning 2D and 3D arcade titles, each featuring custom AI systems for enemy behavior and non-playable characters.",
+      "Games include persistent save systems, dynamic difficulty scaling, and polished gameplay loops designed for replayability.",
+    ],
+    highlights: [
+      "Custom AI systems for enemies and NPCs",
+      "2D and 3D arcade game portfolio",
+      "Persistent save & continue systems",
+      "Built with Unity and C#",
+    ],
+    tags: ["Unity", "C#", "Game AI", "2D", "3D"],
+    images: GamesProject,
+    year: "2020",
+    category: "Games",
   },
 ];

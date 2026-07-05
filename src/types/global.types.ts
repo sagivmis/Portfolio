@@ -17,8 +17,16 @@ export interface ISection {
 
 export type ProjectType = {
   title: string;
+  subtitle?: string;
   content: string;
+  description?: string[];
+  highlights?: string[];
+  tags?: string[];
+  links?: { label: string; url: string }[];
   images?: Record<string, string>;
+  featured?: boolean;
+  year?: string;
+  category?: string;
 };
 export type Skill = {
   value: number;

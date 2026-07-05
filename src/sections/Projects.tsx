@@ -1,77 +1,183 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { X, ExternalLink } from "lucide-react"
+import { ArrowUpRight, X, ExternalLink } from "lucide-react"
 import { projects } from "@/util/consts"
 import { Skeleton } from "@/assets"
 import type { ProjectType } from "@/types"
 import { GlassCard } from "@/components/ui/GlassCard"
 import { Reveal } from "@/components/ui/Reveal"
+import {
+  ProjectGallery,
+  getProjectImages,
+} from "@/components/ui/ProjectGallery"
 import { cn } from "@/lib/utils"
 
-function getProjectImage(project: ProjectType): string {
-  if (project.images) {
-    const firstKey = Object.keys(project.images)[0]
-    return project.images[firstKey]
-  }
-  return Skeleton
+function ProjectTags({ tags }: { tags?: string[] }) {
+  if (!tags?.length) return null
+  return (
+    <div className="flex flex-wrap gap-2">
+      {tags.map((tag) => (
+        <span
+          key={tag}
+          className="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-muted"
+        >
+          {tag}
+        </span>
+      ))}
+    </div>
+  )
 }
 
-function ProjectCard({
+function ProjectLinks({ links }: { links?: ProjectType["links"] }) {
+  if (!links?.length) return null
+  return (
+    <div className="flex flex-wrap gap-3">
+      {links.map((link) => (
+        <a
+          key={link.url}
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-cursor="pointer"
+          className="group inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 font-mono text-xs uppercase tracking-wider text-primary transition-all hover:border-primary/40 hover:bg-primary/10"
+        >
+          {link.label}
+          <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+        </a>
+      ))}
+    </div>
+  )
+}
+
+function ProjectContent({
+  project,
+  expanded = false,
+}: {
+  project: ProjectType
+  expanded?: boolean
+}) {
+  return (
+    <div className="flex flex-col justify-center text-left">
+      <div className="mb-3 flex flex-wrap items-center gap-3">
+        {project.category && (
+          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-accent">
+            {project.category}
+          </span>
+        )}
+        {project.year && (
+          <span className="font-mono text-[10px] text-muted">{project.year}</span>
+        )}
+        {project.featured && (
+          <span className="rounded-full bg-primary/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-primary">
+            Featured
+          </span>
+        )}
+      </div>
+
+      <h3 className="font-display text-2xl font-semibold text-ink md:text-3xl lg:text-4xl">
+        {project.title}
+      </h3>
+
+      {project.subtitle && (
+        <p className="mt-2 font-mono text-sm text-primary">{project.subtitle}</p>
+      )}
+
+      <p className="mt-4 text-muted leading-relaxed">{project.content}</p>
+
+      {expanded && project.description && (
+        <div className="mt-4 space-y-3">
+          {project.description.map((paragraph, i) => (
+            <p key={i} className="text-sm text-muted leading-relaxed">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+      )}
+
+      {project.highlights && (
+        <ul className={cn("mt-6 space-y-2", !expanded && "hidden md:block")}>
+          {(expanded ? project.highlights : project.highlights.slice(0, 3)).map(
+            (item) => (
+              <li
+                key={item}
+                className="flex items-start gap-2 text-sm text-muted before:mt-1.5 before:block before:h-1 before:w-1 before:flex-shrink-0 before:rounded-full before:bg-primary"
+              >
+                {item}
+              </li>
+            )
+          )}
+        </ul>
+      )}
+
+      <div className="mt-6 space-y-4">
+        <ProjectTags tags={project.tags} />
+        <ProjectLinks links={project.links} />
+      </div>
+    </div>
+  )
+}
+
+function FeaturedProject({ project }: { project: ProjectType }) {
+  const images = getProjectImages(project.images)
+
+  return (
+    <Reveal>
+      <GlassCard className="overflow-hidden p-0">
+        <div className="grid lg:grid-cols-2">
+          <ProjectGallery
+            images={images.length ? images : [Skeleton]}
+            title={project.title}
+            className="rounded-none lg:rounded-l-2xl"
+            aspectClass="aspect-[4/3] lg:aspect-auto lg:min-h-[480px]"
+          />
+          <div className="p-8 md:p-10 lg:p-12">
+            <ProjectContent project={project} expanded />
+          </div>
+        </div>
+      </GlassCard>
+    </Reveal>
+  )
+}
+
+function ProjectRow({
   project,
   index,
-  onSelect,
+  onOpen,
 }: {
   project: ProjectType
   index: number
-  onSelect: () => void
+  onOpen: () => void
 }) {
-  const image = getProjectImage(project)
-  const isLarge = index === 0
+  const images = getProjectImages(project.images)
+  const reversed = index % 2 === 1
 
   return (
-    <motion.div
-      whileHover={{ y: -8 }}
-      transition={{ duration: 0.3 }}
-      className={cn(isLarge && "md:col-span-2 md:row-span-2")}
-      style={{ perspective: "1000px" }}
-    >
-      <button
-        type="button"
-        data-cursor="pointer"
-        onClick={onSelect}
-        className="group h-full w-full text-left"
+    <Reveal delay={index * 0.08}>
+      <div
+        className={cn(
+          "grid items-center gap-8 lg:grid-cols-2 lg:gap-16",
+          reversed && "lg:[direction:rtl] lg:*:[direction:ltr]"
+        )}
       >
-        <GlassCard className="relative h-full overflow-hidden p-0">
-          <div
-            className="relative overflow-hidden"
-            style={{
-              transformStyle: "preserve-3d",
-            }}
+        <ProjectGallery
+          images={images.length ? images : [Skeleton]}
+          title={project.title}
+        />
+
+        <div className="flex flex-col">
+          <ProjectContent project={project} />
+          <button
+            type="button"
+            data-cursor="pointer"
+            onClick={onOpen}
+            className="group mt-8 inline-flex w-fit items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-primary transition-colors hover:text-ink"
           >
-            <div className="aspect-video overflow-hidden">
-              <img
-                src={image}
-                alt={project.title}
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-base via-base/20 to-transparent opacity-80" />
-            </div>
-          </div>
-          <div className="p-6">
-            <h3 className="font-display text-xl font-semibold text-ink transition-colors group-hover:text-primary">
-              {project.title}
-            </h3>
-            <p className="mt-2 line-clamp-2 text-sm text-muted">
-              {project.content}
-            </p>
-          </div>
-          <div className="absolute right-4 top-4 rounded-full bg-primary/10 p-2 opacity-0 transition-opacity group-hover:opacity-100">
-            <ExternalLink className="h-4 w-4 text-primary" />
-          </div>
-        </GlassCard>
-      </button>
-    </motion.div>
+            View case study
+            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </button>
+        </div>
+      </div>
+    </Reveal>
   )
 }
 
@@ -82,25 +188,23 @@ function ProjectModal({
   project: ProjectType
   onClose: () => void
 }) {
-  const images = project.images
-    ? Object.values(project.images)
-    : [Skeleton]
+  const images = getProjectImages(project.images)
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[200] flex items-center justify-center p-4 md:p-8"
+      className="fixed inset-0 z-[200] flex items-end justify-center p-0 sm:items-center sm:p-4 md:p-8"
       onClick={onClose}
     >
       <div className="absolute inset-0 bg-base/90 backdrop-blur-xl" />
       <motion.div
-        initial={{ opacity: 0, scale: 0.9, y: 40 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.9, y: 40 }}
-        transition={{ duration: 0.4, ease: [0.2, 0.8, 0.2, 1] }}
-        className="glass-strong relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-3xl"
+        initial={{ opacity: 0, y: 60 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 60 }}
+        transition={{ duration: 0.45, ease: [0.2, 0.8, 0.2, 1] }}
+        className="glass-strong relative max-h-[92vh] w-full max-w-5xl overflow-y-auto rounded-t-3xl sm:rounded-3xl"
         onClick={(e) => e.stopPropagation()}
         data-lenis-prevent
       >
@@ -108,40 +212,21 @@ function ProjectModal({
           type="button"
           data-cursor="pointer"
           onClick={onClose}
-          className="absolute right-4 top-4 z-10 rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20"
+          className="absolute right-4 top-4 z-20 rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20"
           aria-label="Close project details"
         >
           <X className="h-5 w-5" />
         </button>
 
-        <div className="grid gap-0 md:grid-cols-2">
-          <div className="relative aspect-square overflow-hidden md:aspect-auto">
-            <img
-              src={images[0]}
-              alt={project.title}
-              className="h-full w-full object-cover"
-            />
-            {images.length > 1 && (
-              <div className="absolute bottom-4 left-4 right-4 flex gap-2 overflow-x-auto hide-scrollbar">
-                {images.slice(0, 4).map((img, i) => (
-                  <img
-                    key={i}
-                    src={img}
-                    alt={`${project.title} screenshot ${i + 1}`}
-                    className="h-16 w-24 flex-shrink-0 rounded-lg object-cover opacity-70"
-                  />
-                ))}
-              </div>
-            )}
-          </div>
-          <div className="p-8 text-left">
-            <h3 className="font-display text-2xl font-bold text-ink">
-              {project.title}
-            </h3>
-            <p className="mt-4 text-muted leading-relaxed whitespace-pre-line">
-              {project.content}
-            </p>
-          </div>
+        <ProjectGallery
+          images={images.length ? images : [Skeleton]}
+          title={project.title}
+          className="rounded-none sm:rounded-t-3xl"
+          aspectClass="aspect-[16/9] sm:aspect-[21/9]"
+        />
+
+        <div className="p-8 md:p-10">
+          <ProjectContent project={project} expanded />
         </div>
       </motion.div>
     </motion.div>
@@ -150,6 +235,8 @@ function ProjectModal({
 
 export function Projects() {
   const [selected, setSelected] = useState<ProjectType | null>(null)
+  const featured = projects.find((p) => p.featured)
+  const rest = projects.filter((p) => !p.featured)
 
   return (
     <section id="projects" className="relative section-padding">
@@ -158,19 +245,28 @@ export function Projects() {
           <p className="section-label mb-4">Projects</p>
           <h2 className="heading-xl text-balance">
             Selected work &{" "}
-            <span className="text-gradient">experiments</span>
+            <span className="text-gradient">case studies</span>
           </h2>
+          <p className="mt-4 max-w-2xl text-left text-muted">
+            From privacy-first mobile apps to trading systems and AI platforms —
+            a closer look at the products I&apos;ve built.
+          </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <Reveal key={project.title} delay={index * 0.1}>
-              <ProjectCard
-                project={project}
-                index={index}
-                onSelect={() => setSelected(project)}
-              />
-            </Reveal>
+        {featured && (
+          <div className="mt-16">
+            <FeaturedProject project={featured} />
+          </div>
+        )}
+
+        <div className="mt-24 space-y-24">
+          {rest.map((project, index) => (
+            <ProjectRow
+              key={project.title}
+              project={project}
+              index={index}
+              onOpen={() => setSelected(project)}
+            />
           ))}
         </div>
       </div>
